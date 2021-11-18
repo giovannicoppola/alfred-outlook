@@ -3,7 +3,7 @@
 <plist version="1.0">
 <dict>
 	<key>bundleid</key>
-	<string>com.xericwei.alfred</string>
+	<string>giovanni-outlook</string>
 	<key>category</key>
 	<string>Productivity</string>
 	<key>connections</key>
@@ -329,6 +329,19 @@
 				<false/>
 			</dict>
 		</array>
+		<key>9D74AA26-60A9-44F2-BCE8-593F2F8D6662</key>
+		<array>
+			<dict>
+				<key>destinationuid</key>
+				<string>4E264C77-CCC6-4653-95B1-B8E7665B0BC1</string>
+				<key>modifiers</key>
+				<integer>0</integer>
+				<key>modifiersubtext</key>
+				<string></string>
+				<key>vitoclose</key>
+				<false/>
+			</dict>
+		</array>
 		<key>ABD5F5C9-E124-4CFF-A7E3-B2DFF62C1F45</key>
 		<array>
 			<dict>
@@ -465,7 +478,7 @@
 		</array>
 	</dict>
 	<key>createdby</key>
-	<string>Xeric Wei</string>
+	<string>giovanni from Xeric Wei</string>
 	<key>description</key>
 	<string>Outlook Mail Search</string>
 	<key>disabled</key>
@@ -562,6 +575,37 @@ end pad</string>
 		<dict>
 			<key>config</key>
 			<dict>
+				<key>action</key>
+				<integer>0</integer>
+				<key>argument</key>
+				<integer>0</integer>
+				<key>focusedappvariable</key>
+				<false/>
+				<key>focusedappvariablename</key>
+				<string></string>
+				<key>hotkey</key>
+				<integer>31</integer>
+				<key>hotmod</key>
+				<integer>1310720</integer>
+				<key>hotstring</key>
+				<string>O</string>
+				<key>leftcursor</key>
+				<false/>
+				<key>modsmode</key>
+				<integer>0</integer>
+				<key>relatedAppsMode</key>
+				<integer>0</integer>
+			</dict>
+			<key>type</key>
+			<string>alfred.workflow.trigger.hotkey</string>
+			<key>uid</key>
+			<string>9D74AA26-60A9-44F2-BCE8-593F2F8D6662</string>
+			<key>version</key>
+			<integer>2</integer>
+		</dict>
+		<dict>
+			<key>config</key>
+			<dict>
 				<key>inputstring</key>
 				<string>{query}</string>
 				<key>matchcasesensitive</key>
@@ -632,6 +676,8 @@ end pad</string>
 				<false/>
 				<key>alfredfiltersresultsmatchmode</key>
 				<integer>0</integer>
+				<key>argumenttreatemptyqueryasnil</key>
+				<false/>
 				<key>argumenttrimmode</key>
 				<integer>0</integer>
 				<key>argumenttype</key>
@@ -652,9 +698,9 @@ end pad</string>
 				<string>Searching...</string>
 				<key>script</key>
 				<string># encoding: utf-8
-query=$1
+#query=$1
 
-python main.py "$query"</string>
+python main.py "$1"</string>
 				<key>scriptargtype</key>
 				<integer>1</integer>
 				<key>scriptfile</key>
@@ -673,7 +719,7 @@ python main.py "$query"</string>
 			<key>uid</key>
 			<string>4E264C77-CCC6-4653-95B1-B8E7665B0BC1</string>
 			<key>version</key>
-			<integer>2</integer>
+			<integer>3</integer>
 		</dict>
 		<dict>
 			<key>config</key>
@@ -682,6 +728,8 @@ python main.py "$query"</string>
 				<false/>
 				<key>clipboardtext</key>
 				<string>{query}</string>
+				<key>ignoredynamicplaceholders</key>
+				<false/>
 				<key>transient</key>
 				<false/>
 			</dict>
@@ -690,7 +738,7 @@ python main.py "$query"</string>
 			<key>uid</key>
 			<string>B9D849E1-328E-4D60-B65D-CA478174E27B</string>
 			<key>version</key>
-			<integer>2</integer>
+			<integer>3</integer>
 		</dict>
 		<dict>
 			<key>config</key>
@@ -853,6 +901,8 @@ python setconf.py "$query"</string>
 				<false/>
 				<key>alfredfiltersresultsmatchmode</key>
 				<integer>0</integer>
+				<key>argumenttreatemptyqueryasnil</key>
+				<false/>
 				<key>argumenttrimmode</key>
 				<integer>0</integer>
 				<key>argumenttype</key>
@@ -893,7 +943,7 @@ python conf.py "$query"</string>
 			<key>uid</key>
 			<string>AC03960B-EBAE-4D3B-898B-E74009E31C9F</string>
 			<key>version</key>
-			<integer>2</integer>
+			<integer>3</integer>
 		</dict>
 		<dict>
 			<key>config</key>
@@ -1018,6 +1068,10 @@ python conf.py "$query"</string>
 				<integer>1</integer>
 				<key>matchstring</key>
 				<string>^olkwarning:</string>
+				<key>regexcaseinsensitive</key>
+				<false/>
+				<key>regexmultiline</key>
+				<false/>
 				<key>replacestring</key>
 				<string></string>
 			</dict>
@@ -1026,7 +1080,7 @@ python conf.py "$query"</string>
 			<key>uid</key>
 			<string>4009E6EB-CAC0-44D7-8EE2-0348427E53DE</string>
 			<key>version</key>
-			<integer>1</integer>
+			<integer>2</integer>
 		</dict>
 		<dict>
 			<key>config</key>
@@ -1050,6 +1104,8 @@ python conf.py "$query"</string>
 				<false/>
 				<key>alfredfiltersresultsmatchmode</key>
 				<integer>0</integer>
+				<key>argumenttreatemptyqueryasnil</key>
+				<false/>
 				<key>argumenttrimmode</key>
 				<integer>0</integer>
 				<key>argumenttype</key>
@@ -1091,7 +1147,7 @@ python contact.py "$query"</string>
 			<key>uid</key>
 			<string>19EF2931-C9D3-4C7E-AC1F-DD448D4C7BC6</string>
 			<key>version</key>
-			<integer>2</integer>
+			<integer>3</integer>
 		</dict>
 		<dict>
 			<key>config</key>
@@ -1164,6 +1220,10 @@ end alfred_script</string>
 				<integer>1</integer>
 				<key>matchstring</key>
 				<string>^outlook\s</string>
+				<key>regexcaseinsensitive</key>
+				<false/>
+				<key>regexmultiline</key>
+				<false/>
 				<key>replacestring</key>
 				<string></string>
 			</dict>
@@ -1172,7 +1232,7 @@ end alfred_script</string>
 			<key>uid</key>
 			<string>56408975-1DD7-44FD-BD95-C1C34FAC2F7C</string>
 			<key>version</key>
-			<integer>1</integer>
+			<integer>2</integer>
 		</dict>
 		<dict>
 			<key>config</key>
@@ -1213,6 +1273,8 @@ end alfred_script</string>
 				<false/>
 				<key>alfredfiltersresultsmatchmode</key>
 				<integer>0</integer>
+				<key>argumenttreatemptyqueryasnil</key>
+				<false/>
 				<key>argumenttrimmode</key>
 				<integer>0</integer>
 				<key>argumenttype</key>
@@ -1254,7 +1316,7 @@ python newmail.py "$query"</string>
 			<key>uid</key>
 			<string>ABD5F5C9-E124-4CFF-A7E3-B2DFF62C1F45</string>
 			<key>version</key>
-			<integer>2</integer>
+			<integer>3</integer>
 		</dict>
 		<dict>
 			<key>config</key>
@@ -1369,6 +1431,10 @@ end get_receiver</string>
 				<integer>1</integer>
 				<key>matchstring</key>
 				<string>^send:\s</string>
+				<key>regexcaseinsensitive</key>
+				<false/>
+				<key>regexmultiline</key>
+				<false/>
 				<key>replacestring</key>
 				<string></string>
 			</dict>
@@ -1377,7 +1443,7 @@ end get_receiver</string>
 			<key>uid</key>
 			<string>8DB394A4-5F25-4E2C-AED5-C9EBED7FB718</string>
 			<key>version</key>
-			<integer>1</integer>
+			<integer>2</integer>
 		</dict>
 	</array>
 	<key>readme</key>
@@ -1560,6 +1626,13 @@ https://github.com/xeric/alfred-outlook</string>
 			<key>ypos</key>
 			<integer>770</integer>
 		</dict>
+		<key>9D74AA26-60A9-44F2-BCE8-593F2F8D6662</key>
+		<dict>
+			<key>xpos</key>
+			<integer>30</integer>
+			<key>ypos</key>
+			<integer>150</integer>
+		</dict>
 		<key>9F65E389-40DD-4FA1-B689-DA558CE1A42A</key>
 		<dict>
 			<key>xpos</key>
@@ -1662,6 +1735,6 @@ https://github.com/xeric/alfred-outlook</string>
 	<key>version</key>
 	<string>0.1.9</string>
 	<key>webaddress</key>
-	<string>https://github.com/xeric/alfred-outlook</string>
+	<string>https://github.com/giovannicoppola/alfred-outlook</string>
 </dict>
 </plist>

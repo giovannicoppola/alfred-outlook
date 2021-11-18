@@ -1,4 +1,4 @@
-# encoding:utf-8
+ # encoding:utf-8
 from __future__ import print_function, unicode_literals
 
 import sys
@@ -16,7 +16,7 @@ from consts import *
 
 from util import Util
 
-GITHUB_SLUG = 'xeric/alfred-outlook'
+GITHUB_SLUG = 'giovannicoppola/alfred-outlook'
 UPDATE_FREQUENCY = 7
 
 log = None

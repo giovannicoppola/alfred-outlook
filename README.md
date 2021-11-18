@@ -1,9 +1,21 @@
 # alfred-outlook
+**Features added/edited**
+
+- hotkey to launch search
+
+To DO
+
+- add `to:`operator
+- fix attachment icon
+- replace filters with conditional utility
+- 
+
 ***Alfred outlook mail search***
 
 <p style="color:red">
-Please notice this workflow can't work well when you troggle ‘New Outlook’!
+Please notice this workflow can't work well when you toggle ‘New Outlook’!
 </p>
+
 
 This is an Alfred Workflow for searching Microsoft Outlook Version 16 and later.
 ```
@@ -44,8 +56,8 @@ You can also apply some simple keywords filter on it:
 
     olk recent:30 {keyword1} {keyword2} 
 
-## Attachment Download (**Alfred V3** and up only)
-After search result listed, an icon with <img src="https://raw.githubusercontent.com/xeric/alfred-outlook/master/attachment.png" width="20" height="20"> means this mail contains attachment, Press 'CTRL' and click, all attachments will be save to disk
+## Attachment Download (**Alfred V3**+)
+In the list of search results, an icon with <img src="https://raw.githubusercontent.com/xeric/alfred-outlook/master/attachment.png" width="20" height="20"> means this mail contains attachment, Press 'CTRL' and click, all attachments will be saves to disk **this does not seem to work (icon)**
 
 Default Path to save is '~/Downloads/outlook_attachments', you can change it to your preferred folder with changing Alfred Workflow Environment Variables:
   * Open 'Alfred Preferences' -> Click on tab 'Workflows' -> Choose 'Outlook Search' in sidebar
