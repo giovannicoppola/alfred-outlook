@@ -1,15 +1,4 @@
 # alfred-outlook
-**Features added/edited**
-
-- hotkey to launch search
-
-To DO
-
-- add `to:`operator
-- fix attachment icon
-- replace filters with conditional utility
-- 
-
 ***Alfred outlook mail search***
 
 <p style="color:red">

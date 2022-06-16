@@ -46,8 +46,6 @@ def main(wf):
 
     handle(wf, query)
 
-    log.info('searching mail with keyword')
-
 
 def handle(wf, query):
     # log.info("The query " + query + " is " + str(ud.name(query[0])))
@@ -68,7 +66,7 @@ def handle(wf, query):
         # set default profile to improve user experience
         if storedProfle is None:
             log.info("stored profile is empty, try to get new one!")
-            Util.configureDefaultProfile(wf)
+           # Util.configureDefaultProfile(wf)
         else:
             log.info("configured profile is" + storedProfle)
 
@@ -360,11 +358,11 @@ if __name__ == '__main__':
         'frequency': UPDATE_FREQUENCY
     })
 
-    if not Util.isAlfredV2(wf):
-        wf = Workflow3(update_settings={
-            'github_slug': GITHUB_SLUG,
-            'frequency': UPDATE_FREQUENCY
-        })
+    
+    wf = Workflow3(update_settings={
+        'github_slug': GITHUB_SLUG,
+        'frequency': UPDATE_FREQUENCY
+    })
 
     log = wf.logger
 

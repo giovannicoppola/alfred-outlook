@@ -478,7 +478,7 @@
 		</array>
 	</dict>
 	<key>createdby</key>
-	<string>giovanni from Xeric Wei</string>
+	<string>giovanni (from Xeric Wei)</string>
 	<key>description</key>
 	<string>Outlook Mail Search</string>
 	<key>disabled</key>
@@ -697,10 +697,9 @@ end pad</string>
 				<key>runningsubtext</key>
 				<string>Searching...</string>
 				<key>script</key>
-				<string># encoding: utf-8
-#query=$1
-
-python main.py "$1"</string>
+				<string>export PATH=/opt/homebrew/bin:/usr/local/bin:$PATH
+export PYTHONPATH="$PWD/lib"
+python3 main.py "$1"</string>
 				<key>scriptargtype</key>
 				<integer>1</integer>
 				<key>scriptfile</key>
@@ -922,9 +921,12 @@ python setconf.py "$query"</string>
 				<key>runningsubtext</key>
 				<string>processing...</string>
 				<key>script</key>
-				<string>query=$1
+				<string>export PYTHONPATH="$PWD/lib"
+export PATH=/opt/homebrew/bin:/usr/local/bin:$PWD/lib/bin:$PATH
 
-python conf.py "$query"</string>
+query=$1
+
+python3 conf.py "$query"</string>
 				<key>scriptargtype</key>
 				<integer>1</integer>
 				<key>scriptfile</key>
@@ -1125,10 +1127,13 @@ python conf.py "$query"</string>
 				<key>runningsubtext</key>
 				<string>Searching...</string>
 				<key>script</key>
-				<string># encoding: utf-8
+				<string>export PYTHONPATH="$PWD/lib"
+export PATH=/opt/homebrew/bin:/usr/local/bin:$PWD/lib/bin:$PATH
+
+
 query=$1
 
-python contact.py "$query"</string>
+python3 contact.py "$query"</string>
 				<key>scriptargtype</key>
 				<integer>1</integer>
 				<key>scriptfile</key>
@@ -1294,10 +1299,13 @@ end alfred_script</string>
 				<key>runningsubtext</key>
 				<string></string>
 				<key>script</key>
-				<string># encoding: utf-8
+				<string>export PYTHONPATH="$PWD/lib"
+export PATH=/opt/homebrew/bin:/usr/local/bin:$PWD/lib/bin:$PATH
+
+# encoding: utf-8
 query=$1
 
-python newmail.py "$query"</string>
+python3 newmail.py "$query"</string>
 				<key>scriptargtype</key>
 				<integer>1</integer>
 				<key>scriptfile</key>
@@ -1733,7 +1741,7 @@ https://github.com/xeric/alfred-outlook</string>
 		<string>~/Downloads/outlook_attachments/</string>
 	</dict>
 	<key>version</key>
-	<string>0.1.9</string>
+	<string>0.2</string>
 	<key>webaddress</key>
 	<string>https://github.com/giovannicoppola/alfred-outlook</string>
 </dict>
