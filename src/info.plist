@@ -506,10 +506,10 @@
 				<integer>0</integer>
 				<key>script</key>
 				<string># THESE VARIABLES MUST BE SET. SEE THE ONEUPDATER README FOR AN EXPLANATION OF EACH.
-readonly remote_info_plist='https://raw.githubusercontent.com/giovannicoppola/zothero/master/src/info.plist'
-readonly workflow_url='https://github.com/giovannicoppola/zothero'
+readonly remote_info_plist='https://raw.githubusercontent.com/giovannicoppola/alfred-outlook/master/src/info.plist'
+readonly workflow_url='https://github.com/giovannicoppola/alfred-outlook'
 readonly download_type='github_release'
-readonly frequency_check='1'
+readonly frequency_check='3'
 
 # FROM HERE ON, CODE SHOULD BE LEFT UNTOUCHED!
 function abort {
@@ -1868,6 +1868,8 @@ https://github.com/xeric/alfred-outlook</string>
 		<key>olk_attachment_path</key>
 		<string>~/Downloads/outlook_attachments/</string>
 	</dict>
+	<key>variablesdontexport</key>
+	<array/>
 	<key>version</key>
 	<string>0.2</string>
 	<key>webaddress</key>
