@@ -34,7 +34,7 @@ def handle(wf, query):
                 else:
                     hasOption = True
                     value = wf.stored_data(key)
-                    option = key + ' ' + "[" + value + "]" if value else ALL_VALS[i]
+                    option = key + ' ' + "[" + str(value) + "]" if value else ALL_VALS[i]
                     wf.add_item(
                         title=option, 
                         subtitle="Set Config for " + ALL_KEY_DESCS[i], 
@@ -110,8 +110,8 @@ def prepareFolders():
         for row in cur:
             log.info(row[1])
             wf.add_item(
-                title=unicode(row[1]), 
-                subtitle='Set search folder under ' + unicode(row[1]), 
+                title=str(row[1]), 
+                subtitle='Set search folder under ' + str(row[1]), 
                 valid=True, 
                 uid='folder ' + str(row[0]), 
                 arg='folder ' + str(row[0]), 
@@ -127,8 +127,8 @@ def prepareProfile():
     for profile in profiles:
         if not profile.startswith('.'):
             wf.add_item(
-                    title=unicode(profile), 
-                    subtitle='Set profile as: ' + unicode(profile), 
+                    title=str(profile), 
+                    subtitle='Set profile as: ' + str(profile), 
                     valid=True, 
                     uid='profile ' + str(profile), 
                     arg='profile ' + str(profile), 

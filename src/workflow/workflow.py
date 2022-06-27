@@ -1674,7 +1674,7 @@ class Workflow(object):
             return
 
         if isinstance(data, str):
-            data = bytearray(data)
+            data = bytearray(data,encoding='utf8')
 
         # Ensure write is not interrupted by SIGTERM
         @uninterruptible

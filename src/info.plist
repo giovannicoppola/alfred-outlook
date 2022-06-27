@@ -197,6 +197,16 @@
 		<array>
 			<dict>
 				<key>destinationuid</key>
+				<string>38AE95AF-66E8-4967-837B-4F5D60F52F08</string>
+				<key>modifiers</key>
+				<integer>0</integer>
+				<key>modifiersubtext</key>
+				<string></string>
+				<key>vitoclose</key>
+				<false/>
+			</dict>
+			<dict>
+				<key>destinationuid</key>
 				<string>08EF4250-493F-4E87-A0BB-47ADD5D4BC86</string>
 				<key>modifiers</key>
 				<integer>0</integer>
@@ -493,6 +503,103 @@
 				<key>concurrently</key>
 				<false/>
 				<key>escaping</key>
+				<integer>0</integer>
+				<key>script</key>
+				<string># THESE VARIABLES MUST BE SET. SEE THE ONEUPDATER README FOR AN EXPLANATION OF EACH.
+readonly remote_info_plist='https://raw.githubusercontent.com/giovannicoppola/zothero/master/src/info.plist'
+readonly workflow_url='https://github.com/giovannicoppola/zothero'
+readonly download_type='github_release'
+readonly frequency_check='1'
+
+# FROM HERE ON, CODE SHOULD BE LEFT UNTOUCHED!
+function abort {
+  echo "${1}" &gt;&amp;2
+  exit 1
+}
+
+function url_exists {
+  curl --silent --location --output /dev/null --fail --range 0-0 "${1}"
+}
+
+function notification {
+  local -r notificator="$(find . -type f -name 'notificator')"
+
+  if [[ -f "${notificator}" &amp;&amp; "$(/usr/bin/file --brief --mime-type "${notificator}")" == 'text/x-shellscript' ]]; then
+    "${notificator}" --message "${1}" --title "${alfred_workflow_name}" --subtitle 'A new version is available'
+    return
+  fi
+
+  osascript -e "display notification \"${1}\" with title \"${alfred_workflow_name}\" subtitle \"A new version is available\""
+}
+
+# Local sanity checks
+readonly local_info_plist='info.plist'
+readonly local_version="$(/usr/libexec/PlistBuddy -c 'print version' "${local_info_plist}")"
+
+[[ -n "${local_version}" ]] || abort 'You need to set a workflow version in the configuration sheet.'
+[[ "${download_type}" =~ ^(direct|page|github_release)$ ]] || abort "'download_type' (${download_type}) needs to be one of 'direct', 'page', or 'github_release'."
+[[ "${frequency_check}" =~ ^[0-9]+$ ]] || abort "'frequency_check' (${frequency_check}) needs to be a number."
+
+# Check for updates
+if [[ $(find "${local_info_plist}" -mtime +"${frequency_check}"d) ]]; then
+  # Remote sanity check
+  if ! url_exists "${remote_info_plist}"; then
+    abort "'remote_info_plist' (${remote_info_plist}) appears to not be reachable."
+  fi
+
+  readonly tmp_file="$(mktemp)"
+  curl --silent --location --output "${tmp_file}" "${remote_info_plist}"
+  readonly remote_version="$(/usr/libexec/PlistBuddy -c 'print version' "${tmp_file}")"
+  rm "${tmp_file}"
+
+  if [[ "${local_version}" == "${remote_version}" ]]; then
+    touch "${local_info_plist}" # Reset timer by touching local file
+    exit 0
+  fi
+
+  if [[ "${download_type}" == 'page' ]]; then
+    notification 'Opening download page…'
+    open "${workflow_url}"
+    exit 0
+  fi
+
+  readonly download_url="$(
+    if [[ "${download_type}" == 'github_release' ]]; then
+      osascript -l JavaScript -e 'function run(argv) { return JSON.parse(argv[0])["assets"].find(asset =&gt; asset["browser_download_url"].endsWith(".alfredworkflow"))["browser_download_url"] }' "$(curl --silent "https://api.github.com/repos/${workflow_url}/releases/latest")"
+    else
+      echo "${workflow_url}"
+    fi
+  )"
+
+  if url_exists "${download_url}"; then
+    notification 'Downloading and installing…'
+    readonly download_name="$(basename "${download_url}")"
+    curl --silent --location --output "${HOME}/Downloads/${download_name}" "${download_url}"
+    open "${HOME}/Downloads/${download_name}"
+  else
+    abort "'workflow_url' (${download_url}) appears to not be reachable."
+  fi
+fi</string>
+				<key>scriptargtype</key>
+				<integer>1</integer>
+				<key>scriptfile</key>
+				<string></string>
+				<key>type</key>
+				<integer>0</integer>
+			</dict>
+			<key>type</key>
+			<string>alfred.workflow.action.script</string>
+			<key>uid</key>
+			<string>38AE95AF-66E8-4967-837B-4F5D60F52F08</string>
+			<key>version</key>
+			<integer>2</integer>
+		</dict>
+		<dict>
+			<key>config</key>
+			<dict>
+				<key>concurrently</key>
+				<false/>
+				<key>escaping</key>
 				<integer>68</integer>
 				<key>script</key>
 				<string>on run argv
@@ -659,6 +766,8 @@ end pad</string>
 		<dict>
 			<key>config</key>
 			<dict>
+				<key>availableviaurlhandler</key>
+				<false/>
 				<key>triggerid</key>
 				<string>olkTrigger</string>
 			</dict>
@@ -865,7 +974,9 @@ python3 main.py "$1"</string>
 				<key>script</key>
 				<string>query=$1
 
-python setconf.py "$query"</string>
+export PATH=/opt/homebrew/bin:/usr/local/bin:$PATH
+export PYTHONPATH="$PWD/lib"
+python3 setconf.py "$query"</string>
 				<key>scriptargtype</key>
 				<integer>1</integer>
 				<key>scriptfile</key>
@@ -883,6 +994,8 @@ python setconf.py "$query"</string>
 		<dict>
 			<key>config</key>
 			<dict>
+				<key>availableviaurlhandler</key>
+				<false/>
 				<key>triggerid</key>
 				<string>olkcTrigger</string>
 			</dict>
@@ -934,7 +1047,7 @@ python3 conf.py "$query"</string>
 				<key>subtext</key>
 				<string>pagesize, folder, profile, filter...</string>
 				<key>title</key>
-				<string>Configre Outlook Search</string>
+				<string>Configure Outlook Search [🚨TO BE UPDATED]</string>
 				<key>type</key>
 				<integer>0</integer>
 				<key>withspace</key>
@@ -1261,6 +1374,8 @@ end alfred_script</string>
 		<dict>
 			<key>config</key>
 			<dict>
+				<key>availableviaurlhandler</key>
+				<false/>
 				<key>triggerid</key>
 				<string>olknewTrigger</string>
 			</dict>
@@ -1469,270 +1584,283 @@ https://github.com/xeric/alfred-outlook</string>
 		<key>0056A321-AB40-470C-8994-988B75DAA917</key>
 		<dict>
 			<key>xpos</key>
-			<integer>700</integer>
+			<real>700</real>
 			<key>ypos</key>
-			<integer>140</integer>
+			<real>140</real>
 		</dict>
 		<key>00572759-3F3D-45D5-B281-6C3A33F76317</key>
 		<dict>
 			<key>xpos</key>
-			<integer>540</integer>
+			<real>540</real>
 			<key>ypos</key>
-			<integer>290</integer>
+			<real>290</real>
 		</dict>
 		<key>08EF4250-493F-4E87-A0BB-47ADD5D4BC86</key>
 		<dict>
 			<key>xpos</key>
-			<integer>540</integer>
+			<real>540</real>
 			<key>ypos</key>
-			<integer>210</integer>
+			<real>210</real>
 		</dict>
 		<key>0AC09A95-07CE-4375-9A42-660A68265C73</key>
 		<dict>
 			<key>xpos</key>
-			<integer>50</integer>
+			<real>50</real>
 			<key>ypos</key>
-			<integer>1030</integer>
+			<real>1030</real>
 		</dict>
 		<key>0B63B674-D674-4D94-B97A-9D8122956F48</key>
 		<dict>
 			<key>xpos</key>
-			<integer>700</integer>
+			<real>700</real>
 			<key>ypos</key>
-			<integer>520</integer>
+			<real>520</real>
 		</dict>
 		<key>12FE396B-98F3-4852-9F22-225CE8F83E98</key>
 		<dict>
 			<key>xpos</key>
-			<integer>450</integer>
+			<real>450</real>
 			<key>ypos</key>
-			<integer>380</integer>
+			<real>380</real>
 		</dict>
 		<key>17D73A25-5EFB-40E4-AA68-8502C80384F8</key>
 		<dict>
 			<key>xpos</key>
-			<integer>530</integer>
+			<real>530</real>
 			<key>ypos</key>
-			<integer>1200</integer>
+			<real>1200</real>
 		</dict>
 		<key>19EF2931-C9D3-4C7E-AC1F-DD448D4C7BC6</key>
 		<dict>
 			<key>xpos</key>
-			<integer>50</integer>
+			<real>50</real>
 			<key>ypos</key>
-			<integer>770</integer>
+			<real>770</real>
 		</dict>
 		<key>1A19992F-4A02-44E8-8F36-16FE6A087598</key>
 		<dict>
 			<key>xpos</key>
-			<integer>50</integer>
+			<real>50</real>
 			<key>ypos</key>
-			<integer>310</integer>
+			<real>310</real>
 		</dict>
 		<key>209D79AC-0B39-4970-98F0-0B0D714DB3DC</key>
 		<dict>
 			<key>xpos</key>
-			<integer>1050</integer>
+			<real>1050</real>
 			<key>ypos</key>
-			<integer>400</integer>
+			<real>400</real>
 		</dict>
 		<key>2DB07F3A-9BF1-4FCD-B19F-0EE1232C2154</key>
 		<dict>
 			<key>xpos</key>
-			<integer>700</integer>
+			<real>700</real>
 			<key>ypos</key>
-			<integer>380</integer>
+			<real>380</real>
+		</dict>
+		<key>38AE95AF-66E8-4967-837B-4F5D60F52F08</key>
+		<dict>
+			<key>colorindex</key>
+			<integer>12</integer>
+			<key>note</key>
+			<string>OneUpdater</string>
+			<key>xpos</key>
+			<real>425</real>
+			<key>ypos</key>
+			<real>50</real>
 		</dict>
 		<key>395D0273-E993-49F3-A97E-66AD47BC717C</key>
 		<dict>
 			<key>xpos</key>
-			<integer>520</integer>
+			<real>520</real>
 			<key>ypos</key>
-			<integer>650</integer>
+			<real>650</real>
 		</dict>
 		<key>4009E6EB-CAC0-44D7-8EE2-0348427E53DE</key>
 		<dict>
 			<key>xpos</key>
-			<integer>1130</integer>
+			<real>1130</real>
 			<key>ypos</key>
-			<integer>670</integer>
+			<real>670</real>
 		</dict>
 		<key>407DC3A9-37B0-43BD-85A4-1CC8740BF2D1</key>
 		<dict>
 			<key>xpos</key>
-			<integer>700</integer>
+			<real>700</real>
 			<key>ypos</key>
-			<integer>260</integer>
+			<real>260</real>
 		</dict>
 		<key>4E264C77-CCC6-4653-95B1-B8E7665B0BC1</key>
 		<dict>
 			<key>xpos</key>
-			<integer>260</integer>
+			<real>260</real>
 			<key>ypos</key>
-			<integer>310</integer>
+			<real>310</real>
 		</dict>
 		<key>56408975-1DD7-44FD-BD95-C1C34FAC2F7C</key>
 		<dict>
 			<key>xpos</key>
-			<integer>610</integer>
+			<real>610</real>
 			<key>ypos</key>
-			<integer>930</integer>
+			<real>930</real>
 		</dict>
 		<key>62E99127-9A2B-4C67-805C-566A80C3C9D4</key>
 		<dict>
 			<key>xpos</key>
-			<integer>700</integer>
+			<real>700</real>
 			<key>ypos</key>
-			<integer>1170</integer>
+			<real>1170</real>
 		</dict>
 		<key>739D3F5E-20FE-48BF-9A51-07CEBAE8C00D</key>
 		<dict>
 			<key>xpos</key>
-			<integer>540</integer>
+			<real>540</real>
 			<key>ypos</key>
-			<integer>930</integer>
+			<real>930</real>
 		</dict>
 		<key>744E406F-659B-4E95-9A20-6B39A152E3A8</key>
 		<dict>
 			<key>xpos</key>
-			<integer>1050</integer>
+			<real>1050</real>
 			<key>ypos</key>
-			<integer>530</integer>
+			<real>530</real>
 		</dict>
 		<key>7542A242-1841-460B-913A-541F32EF0196</key>
 		<dict>
 			<key>xpos</key>
-			<integer>570</integer>
+			<real>570</real>
 			<key>ypos</key>
-			<integer>440</integer>
+			<real>440</real>
 		</dict>
 		<key>8AECEF68-5174-4A99-8093-049930A645C5</key>
 		<dict>
 			<key>xpos</key>
-			<integer>600</integer>
+			<real>600</real>
 			<key>ypos</key>
-			<integer>1060</integer>
+			<real>1060</real>
 		</dict>
 		<key>8D20D177-4409-4C23-9DDA-25DA725B5804</key>
 		<dict>
 			<key>xpos</key>
-			<integer>1210</integer>
+			<real>1210</real>
 			<key>ypos</key>
-			<integer>500</integer>
+			<real>500</real>
 		</dict>
 		<key>8DB394A4-5F25-4E2C-AED5-C9EBED7FB718</key>
 		<dict>
 			<key>xpos</key>
-			<integer>600</integer>
+			<real>600</real>
 			<key>ypos</key>
-			<integer>1200</integer>
+			<real>1200</real>
 		</dict>
 		<key>95DA09E8-1CEB-44EA-A75E-97887AF52D94</key>
 		<dict>
 			<key>xpos</key>
-			<integer>700</integer>
+			<real>700</real>
 			<key>ypos</key>
-			<integer>770</integer>
+			<real>770</real>
 		</dict>
 		<key>9D74AA26-60A9-44F2-BCE8-593F2F8D6662</key>
 		<dict>
 			<key>xpos</key>
-			<integer>30</integer>
+			<real>30</real>
 			<key>ypos</key>
-			<integer>150</integer>
+			<real>150</real>
 		</dict>
 		<key>9F65E389-40DD-4FA1-B689-DA558CE1A42A</key>
 		<dict>
 			<key>xpos</key>
-			<integer>700</integer>
+			<real>700</real>
 			<key>ypos</key>
-			<integer>1030</integer>
+			<real>1030</real>
 		</dict>
 		<key>ABD5F5C9-E124-4CFF-A7E3-B2DFF62C1F45</key>
 		<dict>
 			<key>xpos</key>
-			<integer>340</integer>
+			<real>340</real>
 			<key>ypos</key>
-			<integer>1030</integer>
+			<real>1030</real>
 		</dict>
 		<key>AC03960B-EBAE-4D3B-898B-E74009E31C9F</key>
 		<dict>
 			<key>xpos</key>
-			<integer>260</integer>
+			<real>260</real>
 			<key>ypos</key>
-			<integer>520</integer>
+			<real>520</real>
 		</dict>
 		<key>AE6AB85E-C074-4EA4-80BD-E0F9CB027844</key>
 		<dict>
 			<key>xpos</key>
-			<integer>700</integer>
+			<real>700</real>
 			<key>ypos</key>
-			<integer>640</integer>
+			<real>640</real>
 		</dict>
 		<key>B57E710F-DC5A-409C-A180-FD3509580992</key>
 		<dict>
 			<key>xpos</key>
-			<integer>520</integer>
+			<real>520</real>
 			<key>ypos</key>
-			<integer>800</integer>
+			<real>800</real>
 		</dict>
 		<key>B9D849E1-328E-4D60-B65D-CA478174E27B</key>
 		<dict>
 			<key>xpos</key>
-			<integer>1210</integer>
+			<real>1210</real>
 			<key>ypos</key>
-			<integer>370</integer>
+			<real>370</real>
 		</dict>
 		<key>BDA1DBAF-FF52-4C96-9310-C6A7BB563E41</key>
 		<dict>
 			<key>xpos</key>
-			<integer>240</integer>
+			<real>240</real>
 			<key>ypos</key>
-			<integer>980</integer>
+			<real>980</real>
 		</dict>
 		<key>C005570F-B610-4B2F-ADC5-D1D60A6DD77F</key>
 		<dict>
 			<key>xpos</key>
-			<integer>570</integer>
+			<real>570</real>
 			<key>ypos</key>
-			<integer>370</integer>
+			<real>370</real>
 		</dict>
 		<key>CAF79698-17BE-4CBE-BEE5-B2F81C257B4C</key>
 		<dict>
 			<key>xpos</key>
-			<integer>520</integer>
+			<real>520</real>
 			<key>ypos</key>
-			<integer>550</integer>
+			<real>550</real>
 		</dict>
 		<key>CDCAAABA-759D-4D85-8399-07197A7A4C71</key>
 		<dict>
 			<key>xpos</key>
-			<integer>1050</integer>
+			<real>1050</real>
 			<key>ypos</key>
-			<integer>670</integer>
+			<real>670</real>
 		</dict>
 		<key>CE568D89-8C12-4D56-A843-DD1A0421C68B</key>
 		<dict>
 			<key>xpos</key>
-			<integer>50</integer>
+			<real>50</real>
 			<key>ypos</key>
-			<integer>520</integer>
+			<real>520</real>
 		</dict>
 		<key>CF833D44-899F-4B3A-8205-042C53233EAA</key>
 		<dict>
 			<key>xpos</key>
-			<integer>700</integer>
+			<real>700</real>
 			<key>ypos</key>
-			<integer>900</integer>
+			<real>900</real>
 		</dict>
 		<key>EF0EA5A2-CF83-49F3-B150-CD630E057FA0</key>
 		<dict>
 			<key>xpos</key>
-			<integer>1210</integer>
+			<real>1210</real>
 			<key>ypos</key>
-			<integer>640</integer>
+			<real>640</real>
 		</dict>
 	</dict>
+	<key>userconfigurationconfig</key>
+	<array/>
 	<key>variables</key>
 	<dict>
 		<key>mail</key>
