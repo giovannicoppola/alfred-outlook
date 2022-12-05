@@ -1,16 +1,16 @@
 # alfred-outlook
 ***Alfred outlook mail search***
 
-<p style="color:red">
-Please notice this workflow can't work well when you toggle ‘New Outlook’!
-</p>
+- This is an Alfred Workflow for searching Microsoft Outlook Version 16 and later.
+- Original from [@xeric](https://github.com/xeric). 
+- This is a partial port to Python 3 and Alfred 5 to get the basic functionalities. I will work more on it if there is interest. 
+- *Note*: Will not work with the 'New Outlook' interface, as Apple Script is not supported. 
 
-
-This is an Alfred Workflow for searching Microsoft Outlook Version 16 and later.
 ```
 olk | olkp | olknew | olkc
 ```
-----------------------------------------
+
+#Usage
 
 ## Command olk - Search email
 
@@ -45,19 +45,16 @@ You can also apply some simple keywords filter on it:
 
     olk recent:30 {keyword1} {keyword2} 
 
-## Attachment Download (**Alfred V3**+)
-In the list of search results, an icon with <img src="https://raw.githubusercontent.com/xeric/alfred-outlook/master/attachment.png" width="20" height="20"> means this mail contains attachment, Press 'CTRL' and click, all attachments will be saves to disk **this does not seem to work (icon)**
+## Attachment Download 
+In the list of search results, an icon with <img src="https://raw.githubusercontent.com/xeric/alfred-outlook/master/attachment.png" width="20" height="20"> means this mail contains attachment, Press 'CTRL' and click, all attachments will be saves to disk **this does not seem to work**
 
-Default Path to save is '~/Downloads/outlook_attachments', you can change it to your preferred folder with changing Alfred Workflow Environment Variables:
-  * Open 'Alfred Preferences' -> Click on tab 'Workflows' -> Choose 'Outlook Search' in sidebar
-  * Click the [x] in the top right of workflow to show the Workflow Environment Variables panel
-  * There is a variable named 'olk_attachment_path' with default value '~/Downloads/outlook_attachments', change it to your own folder
-  * All attachments will be save to a sub-folder named with your mail subject with 'Folder Allowed Characters'
-  * After attachments downloaded, saved path will be in clipboard
+Default Path to save is '~/Downloads/outlook_attachments', you can change it to your preferred folder with changing Alfred Workflow Environment:
 
-### This workflow search result supports Powerful Pagination:
-> * 'Next Page' if there's more pages available.
-> * If you are using **Alfred V3**, Press 'CTRL' on 'Next Page' item as modifier, then it behave as 'Previous Page'
+- Open the Workflow Environment Variables panel
+- There is a variable named `olk_attachment_path` with default value `~/Downloads/outlook_attachments`, change it to your own folder
+- All attachments will be save to a sub-folder named with your mail subject with 'Folder Allowed Characters'
+- After attachments downloaded, saved path will be in clipboard
+
 
 ## Command olkc - Configuration
 
@@ -105,6 +102,7 @@ when you checked 'Don't show this message again', this warning dialog won't show
  > * for found results, you can select to open contact pane in Outlook.
  > * If you are using **Alfred V3**, Press 'CTRL' on selected contact for composing a new mail to contact in Outlook
 
-## Download built version here:
+# Changelog
 
-https://github.com/xeric/alfred-outlook/releases
+- 2022-12-05 version 0.3 (Alfred 5)
+- 2022-06-27 version 0.2 (Python 3)
