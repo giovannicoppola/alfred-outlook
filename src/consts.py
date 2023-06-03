@@ -1,17 +1,32 @@
-# coding:utf-8
-PAGE_SIZE = 20
-# OUTLOOK_DATA_PATH = r'/Library/Group Containers/UBF8T346G9.Office/Outlook/Outlook 15 Profiles/Main Profile/Data/'
-OUTLOOK_DATA_PARENT = r'/Library/Group Containers/UBF8T346G9.Office/Outlook/Outlook 15 Profiles/'
-OUTLOOK_DEFAULT_PROFILE = r'Main Profile'
-OUTLOOK_DATA_FOLDER = r'/Data/'
-OUTLOOK_SQLITE_FILE = r'Outlook.sqlite'
+import os
+"""
+CONFIG file for the OUTLOOK workflow 
 
-KEY_PAGE_SIZE = 'pagesize'
-KEY_FOLDER = 'folder'
-KEY_PROFILE = 'profile'
-KEY_FILTER = 'filter'
-ALL_KEYS = [KEY_PAGE_SIZE, KEY_FOLDER, KEY_PROFILE, KEY_FILTER]
-ALL_KEY_DESCS = ['one page result size', 'search folder', 'outlook profile', 'search result filter']
-ALL_VALS = ['[number]', '[folder name]', '[profile name]', '[LIKE string]']
+Sunny ☀️   🌡️+69°F (feels +69°F, 61%) 🌬️→4mph 🌔&m Thu Jun  1 11:35:35 2023
+W22Q2 – 152 ➡️ 212 – 21 ❇️ 344
 
-RULES = [r'(pagesize)\s+(\d+)', r'(folder)\s+(\d+)', r'(profile)\s+([\w\s_]+)', r'(filter)\s+(%?[^%]*%?)']
+"""
+
+
+
+MYSELF = os.getenv('MYSELF')
+SNOOZE_FOLDER = os.getenv('SNOOZE_FILE_LOCATION')
+WEED_TX = os.getenv('WEED_TEXT').split(",")
+EXCL_FOLDERS = os.getenv('EXCLUDED_FOLDERS').split(",")
+
+OUTLOOK_MSG_FOLDER = '/Library/Group Containers/UBF8T346G9.Office/Outlook/Outlook 15 Profiles/Main Profile/Data/'
+
+#OUTLOOK_DB_FILE = '/Library/Group Containers/UBF8T346G9.Office/Outlook/Outlook 15 Profiles/Main Profile/Data/Outlook.sqlite'
+OUTLOOK_DB_FILE = '/Users/giovanni/Desktop/Main Profile/Data/Outlook.sqlite'
+
+WF_DATA_FOLDER = os.getenv('alfred_workflow_data')
+OUTLOOK_FOLDER_KEY_FILE  = f"{WF_DATA_FOLDER}/keyfolder.json"
+
+if SNOOZE_FOLDER:
+    OUTLOOK_SNOOZER_FILE  = f"{SNOOZE_FOLDER}/snoozer.json"
+else:
+    OUTLOOK_SNOOZER_FILE  = f"{WF_DATA_FOLDER}/snoozer.json"
+REFRESH_RATE = int(os.getenv('FOLDER_REFRESH'))
+
+if not os.path.exists(WF_DATA_FOLDER):
+    os.makedirs(WF_DATA_FOLDER)

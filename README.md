@@ -1,108 +1,109 @@
-# alfred-outlook
-***Alfred outlook mail search***
-
-- This is an Alfred Workflow for searching Microsoft Outlook Version 16 and later.
-- Original from [@xeric](https://github.com/xeric). 
-- This is a partial port to Python 3 and Alfred 5 to get the basic functionalities. I will work more on it if there is interest. 
-- *Note*: Will not work with the 'New Outlook' interface, as Apple Script is not supported. 
-
-```
-olk | olkp | olknew | olkc
-```
-
-# Usage
-
-## Command olk - Search email
-
-This workflow supports searching:
-- Mail Subject
-- Mail Sender
-- Mail Preview Content
-
-By default, it will search all three above together, you can figure out which single item you want to search with below format:
-
-    olk from:{keyword}
-<h>
-    
-    olk title:{keyword}
-
-Supports multiple keywords search:
-
-    olk {keyword1} {keyword2} {keyword3}
-<h>
-
-    olk title:{keyword1} {keyword2} {keyword3}
-
-It also support get last {n} unread mail quickly:
-
-    olk recent:10
-
-or just get today's unread mail:
-
-    olk recent:today
-
-You can also apply some simple keywords filter on it:
-
-    olk recent:30 {keyword1} {keyword2} 
-
-## Attachment Download 
-In the list of search results, an icon with <img src="https://raw.githubusercontent.com/xeric/alfred-outlook/master/attachment.png" width="20" height="20"> means this mail contains attachment, Press 'CTRL' and click, all attachments will be saves to disk **this does not seem to work**
-
-Default Path to save is '~/Downloads/outlook_attachments', you can change it to your preferred folder with changing Alfred Workflow Environment:
-
-- Open the Workflow Environment Variables panel
-- There is a variable named `olk_attachment_path` with default value `~/Downloads/outlook_attachments`, change it to your own folder
-- All attachments will be save to a sub-folder named with your mail subject with 'Folder Allowed Characters'
-- After attachments downloaded, saved path will be in clipboard
+# alfred-outlookSuite
+***A suite of tools to interact with Microsoft Outlook with Alfred***
 
 
-## Command olkc - Configuration
 
-You can use olkc to set some configurations for search:
+- *Note*: Many of the functions of this package will not work with thenew, electron-based, 'New Outlook' interface, as Apple Script is not supported. 
 
-    olkc pagesize {number}
->It will change your search result list size for every page
+<a href="https://github.com/giovannicoppola/alfred-outlookSuite/releases/latest/">
+<img alt="Downloads"
+src="https://img.shields.io/github/downloads/giovannicoppola/alfred-outlookSuite/total?color=purple&label=Downloads"><br/>
+</a>
 
-    olkc folder
->It will list all available folders in your outlook account, then select one as your default search target
+![](images/alfred-OutlookSuite.png)
 
-    olkc profile
->It will list all available profiles (account) in your outlook, then select one as your preferred
+<!-- MarkdownTOC autolink="true" bracket="round" depth="3" autoanchor="true" -->
 
-    olkc filter {SQL like filter}
->It allows to set a SQL like filter for Subject, with '%' support fuzzy matching, for example:
->   * '%test' to filter all Subjects end with 'test'
->   * 'test%' to filter all Subjects start with 'test'
->   * '%test%' to filter all Subject contain 'test'
->   * (Limitation: only allow one filter in current version)
+- [Motivation](#motivation)
+- [Setting up](#setting-up)
+- [Basic Usage](#usage)
+- [Known Issues](#known-issues)
+- [Acknowledgments](#acknowledgments)
+- [Changelog](#changelog)
+- [Feedback](#feedback)
 
-## Command olknew - Compose a new mail
-
-    olknew {optional: email address}
-
-There are two mode of compose a new mail in plugin, activate Outlook App window mode and inline mode (If you are using **Alfred V3**).
-
-If you are using **Alfred V3**,
-to use inline mode, after you type a email address after olknew command, you can choose: 'Send a Direct Quick Mesaage', and you can type a message after hint 'Message: ' then send it without activating Outlook App window.
-
-> if you are first time using this feature, and when you send a mail through inline mode, you will get a popup warning said:
-
-> A script is attempting to send a message. Some scripts can contain viruses or otherwise be harmful to your computer, so it's important to verify that the script was created by a trustworthy source.
-Do you want to send the message?
-
-when you checked 'Don't show this message again', this warning dialog won't show in next time you send a inline mail.
+<!-- /MarkdownTOC -->
 
 
-## Command olkp - Search Contact (Person)
+<h1 id="motivation">Motivation ✅</h1>
 
-    olkp {keyword}
+- Quickly list, search, and filter your Microsoft Outlook emails 
+- Perform basic tasks like: email snoozing, quick email drafting, email saving. 
 
 
- >it will search contacts by display name and email address.
- > * for found results, you can select to open contact pane in Outlook.
- > * If you are using **Alfred V3**, Press 'CTRL' on selected contact for composing a new mail to contact in Outlook
 
-# Changelog
+<h1 id="setting-up">Setting up ⚙️</h1>
 
+### Needed
+- Alfred 5 with Powerpack license
+- *Note*: Many of the functions of this pacage Will not work with the 'New Outlook' interface, as Apple Script is not supported. 
+- *Note*: Your institution might have an automatic archival policy. In that case older mail messages that have been archived will not be returned in alfred-outlookSuite queries
+- Python3 (howto [here](https://www.freecodecamp.org/news/python-version-on-mac-update/))
+- Download `alfred-outlookSuite` [latest release](https://github.com/giovannicoppola/alfred-outlookSuite/releases/latest)
+
+
+
+## Default settings 
+- In Alfred, open the 'Configure Workflow' menu in `alfred-outlookSuite` preferences
+- *Optional*:	
+	- set the keyword (or hotkey) to launch `alfred-outlookSuite` (default: `olk`) 
+	- set the keyword (or hotkey) to force-refresh the folder list (default: `outlook::refresh`)
+	- set your name, so that it can be used in `from:me` and `to:me` searches
+	- *Text to hide in subject* Enter here comma-separated text strings that you don't want to see in the 'Subject' result (e.g. [External], <External> etc.), therefore saving important real estate in Alfred's output.
+	- *Folders to exclude* List here, comma-separated, the folders you would like to exclude from the search. Default: `Deleted Items`. 
+	- *Folders list refresh rate*	- The folder list is generated periodically (default: 30 days) to improve performance, as folders change less often. Enter your preferred number of days here.
+	- *Snooze file location* - Leave empty if you use this Workflow on one computer (it will be saved in the Workflow's data folder). Enter a shared folder location here in case you want to share the file snoozing information across computers using the same Outlook account.
+
+
+<h1 id="usage">Basic Usage 📖</h1>
+
+## Search your email 🔍
+
+- standard search: one or more search strings will search both the subject of an email, and its preview (first 250 characters). 
+- gmail-like search strings, listed below, supported (remember to set the MYSELF variable in the Workflow COnfiguration. 
+	- `from:` (including `from:me`)
+	- `to:` (including `to:me`)
+	- `subject:`, `cc:`, `has:attach`, `is:unread`, `is:read`, `is:important`, `is:unimportant`  
+	- `folder:` (note: replace spaces with underscores if the folder name contains spaces, e.g. `folder:sent_items`
+	- `-text` to exclude text 
+	- `--a` to sort by increasing date (oldest first)
+	- `since:n` will return email received in the last `n` days. `w` and `m` are supported for months and weeks, respectively (e.g. `since:2w`)
+
+## Drafting a new email ⭐
+- use a keyword (default: `em`) or a hotkey to launch, followed by text. Alfred will create a draft email with subject =  entered text, and save it  in the `Drafts` folder. 
+
+## Email Snoozing 💤
+
+## Email Saving 💾
+
+
+## Folder database refresh 🔄
+- will occur according to the rate in days set in `alfred-outlookSuite` preferences
+- `outlook::refresh` to force folder database refresh
+
+
+<h1 id="known-issues">Limitations & known issues ⚠️</h1>
+
+- None for now, but I have not done extensive testing, let me know if you see anything!
+- Again, a lot of this will not work with the electron interface (`New Outlook`). Uncheck `New Outlook` in the `File`
+
+
+
+<h1 id="acknowledgments">Acknowledgments 😀</h1>
+
+- Thanks to the [Alfred forum](https://www.alfredforum.com) community!
+- - Original from [@xeric](https://github.com/xeric), completely rewritten 
+- Thanks to [@xeric](https://github.com/xeric) for the first version and the inspiration to build upon it. 
+- https://www.flaticon.com/free-icon/abacus_1046277
+	
+<h1 id="changelog">Changelog 🧰</h1>
+
+- 2023-06-03 version 0.9 complete rewrite
 - 2022-12-05 version 0.3 (Alfred 5)
 - 2022-06-27 version 0.2 (Python 3)
+
+
+<h1 id="feedback">Feedback 🧐</h1>
+
+Feedback welcome! If you notice a bug, or have ideas for new features, please feel free to get in touch either here, or on the [Alfred](https://www.alfredforum.com) forum. 
+
