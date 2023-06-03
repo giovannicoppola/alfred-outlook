@@ -104,18 +104,7 @@
 			</dict>
 		</array>
 		<key>7283E189-7EC0-4FFD-980D-108AF6FDE54C</key>
-		<array>
-			<dict>
-				<key>destinationuid</key>
-				<string>6EAD54EF-1CC5-4B16-9253-43B8A2F4A4EC</string>
-				<key>modifiers</key>
-				<integer>0</integer>
-				<key>modifiersubtext</key>
-				<string></string>
-				<key>vitoclose</key>
-				<false/>
-			</dict>
-		</array>
+		<array/>
 		<key>80166171-CC12-4381-AB77-430104E8C23D</key>
 		<array>
 			<dict>
@@ -131,6 +120,16 @@
 		</array>
 		<key>8A0C263B-F494-4497-AAEA-FE4984B29AE1</key>
 		<array>
+			<dict>
+				<key>destinationuid</key>
+				<string>6EAD54EF-1CC5-4B16-9253-43B8A2F4A4EC</string>
+				<key>modifiers</key>
+				<integer>0</integer>
+				<key>modifiersubtext</key>
+				<string></string>
+				<key>vitoclose</key>
+				<false/>
+			</dict>
 			<dict>
 				<key>destinationuid</key>
 				<string>7283E189-7EC0-4FFD-980D-108AF6FDE54C</string>
@@ -319,25 +318,6 @@
 		<dict>
 			<key>config</key>
 			<dict>
-				<key>autopaste</key>
-				<false/>
-				<key>clipboardtext</key>
-				<string>{query}</string>
-				<key>ignoredynamicplaceholders</key>
-				<false/>
-				<key>transient</key>
-				<false/>
-			</dict>
-			<key>type</key>
-			<string>alfred.workflow.output.clipboard</string>
-			<key>uid</key>
-			<string>364681AF-CD8C-4557-A3D1-A1797684D961</string>
-			<key>version</key>
-			<integer>3</integer>
-		</dict>
-		<dict>
-			<key>config</key>
-			<dict>
 				<key>externaltriggerid</key>
 				<string>MainQuery</string>
 				<key>passinputasargument</key>
@@ -353,6 +333,25 @@
 			<string>59CEE536-6DC2-433C-967F-2DAA2119D3D1</string>
 			<key>version</key>
 			<integer>1</integer>
+		</dict>
+		<dict>
+			<key>config</key>
+			<dict>
+				<key>autopaste</key>
+				<false/>
+				<key>clipboardtext</key>
+				<string>{query}</string>
+				<key>ignoredynamicplaceholders</key>
+				<false/>
+				<key>transient</key>
+				<false/>
+			</dict>
+			<key>type</key>
+			<string>alfred.workflow.output.clipboard</string>
+			<key>uid</key>
+			<string>364681AF-CD8C-4557-A3D1-A1797684D961</string>
+			<key>version</key>
+			<integer>3</integer>
 		</dict>
 		<dict>
 			<key>config</key>
@@ -430,27 +429,6 @@
 		<dict>
 			<key>config</key>
 			<dict>
-				<key>argumenttype</key>
-				<integer>2</integer>
-				<key>keyword</key>
-				<string>checkSnoozed</string>
-				<key>subtext</key>
-				<string></string>
-				<key>text</key>
-				<string>Check Snoozed Emails</string>
-				<key>withspace</key>
-				<false/>
-			</dict>
-			<key>type</key>
-			<string>alfred.workflow.input.keyword</string>
-			<key>uid</key>
-			<string>C2A224AF-0638-445D-B53D-FEF8882BC01B</string>
-			<key>version</key>
-			<integer>1</integer>
-		</dict>
-		<dict>
-			<key>config</key>
-			<dict>
 				<key>action</key>
 				<integer>0</integer>
 				<key>argument</key>
@@ -478,6 +456,27 @@
 			<string>92B01EF1-A39E-4237-8C4B-21A76873092B</string>
 			<key>version</key>
 			<integer>2</integer>
+		</dict>
+		<dict>
+			<key>config</key>
+			<dict>
+				<key>argumenttype</key>
+				<integer>2</integer>
+				<key>keyword</key>
+				<string>checkSnoozed</string>
+				<key>subtext</key>
+				<string></string>
+				<key>text</key>
+				<string>Check Snoozed Emails</string>
+				<key>withspace</key>
+				<false/>
+			</dict>
+			<key>type</key>
+			<string>alfred.workflow.input.keyword</string>
+			<key>uid</key>
+			<string>C2A224AF-0638-445D-B53D-FEF8882BC01B</string>
+			<key>version</key>
+			<integer>1</integer>
 		</dict>
 		<dict>
 			<key>config</key>
@@ -642,6 +641,27 @@
 		<dict>
 			<key>config</key>
 			<dict>
+				<key>lastpathcomponent</key>
+				<false/>
+				<key>onlyshowifquerypopulated</key>
+				<false/>
+				<key>removeextension</key>
+				<false/>
+				<key>text</key>
+				<string></string>
+				<key>title</key>
+				<string>Email snoozed until {query} 💤</string>
+			</dict>
+			<key>type</key>
+			<string>alfred.workflow.output.notification</string>
+			<key>uid</key>
+			<string>6EAD54EF-1CC5-4B16-9253-43B8A2F4A4EC</string>
+			<key>version</key>
+			<integer>1</integer>
+		</dict>
+		<dict>
+			<key>config</key>
+			<dict>
 				<key>alignment</key>
 				<integer>0</integer>
 				<key>backgroundcolor</key>
@@ -776,27 +796,6 @@ EOB
 			<string>8A0C263B-F494-4497-AAEA-FE4984B29AE1</string>
 			<key>version</key>
 			<integer>3</integer>
-		</dict>
-		<dict>
-			<key>config</key>
-			<dict>
-				<key>lastpathcomponent</key>
-				<false/>
-				<key>onlyshowifquerypopulated</key>
-				<false/>
-				<key>removeextension</key>
-				<false/>
-				<key>text</key>
-				<string></string>
-				<key>title</key>
-				<string>Email snoozed until {query} 💤</string>
-			</dict>
-			<key>type</key>
-			<string>alfred.workflow.output.notification</string>
-			<key>uid</key>
-			<string>6EAD54EF-1CC5-4B16-9253-43B8A2F4A4EC</string>
-			<key>version</key>
-			<integer>1</integer>
 		</dict>
 		<dict>
 			<key>config</key>
@@ -1381,7 +1380,7 @@ More info: https://github.com/giovannicoppola/alfred-outlook</string>
 			<key>xpos</key>
 			<real>1250</real>
 			<key>ypos</key>
-			<real>620</real>
+			<real>625</real>
 		</dict>
 		<key>1F19DDE6-9AE4-44FD-A28A-8479329F2800</key>
 		<dict>
@@ -1456,9 +1455,9 @@ More info: https://github.com/giovannicoppola/alfred-outlook</string>
 		<key>6EAD54EF-1CC5-4B16-9253-43B8A2F4A4EC</key>
 		<dict>
 			<key>xpos</key>
-			<real>1780</real>
+			<real>1575</real>
 			<key>ypos</key>
-			<real>460</real>
+			<real>340</real>
 		</dict>
 		<key>7283E189-7EC0-4FFD-980D-108AF6FDE54C</key>
 		<dict>
@@ -1570,7 +1569,7 @@ More info: https://github.com/giovannicoppola/alfred-outlook</string>
 		<key>E0BAF5A2-49B7-4876-AD97-986C69BB81AF</key>
 		<dict>
 			<key>xpos</key>
-			<real>1740</real>
+			<real>1720</real>
 			<key>ypos</key>
 			<real>625</real>
 		</dict>
@@ -1774,6 +1773,25 @@ More info: https://github.com/giovannicoppola/alfred-outlook</string>
 			<key>config</key>
 			<dict>
 				<key>default</key>
+				<false/>
+				<key>required</key>
+				<false/>
+				<key>text</key>
+				<string>Post the current inbox count onto Beeminder?</string>
+			</dict>
+			<key>description</key>
+			<string></string>
+			<key>label</key>
+			<string>Use Beeminder?</string>
+			<key>type</key>
+			<string>checkbox</string>
+			<key>variable</key>
+			<string>BEEMINDER</string>
+		</dict>
+		<dict>
+			<key>config</key>
+			<dict>
+				<key>default</key>
 				<string></string>
 				<key>placeholder</key>
 				<string></string>
@@ -1834,8 +1852,6 @@ More info: https://github.com/giovannicoppola/alfred-outlook</string>
 			<string>BEEGOAL</string>
 		</dict>
 	</array>
-	<key>variablesdontexport</key>
-	<array/>
 	<key>version</key>
 	<string>0.9</string>
 	<key>webaddress</key>

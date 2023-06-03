@@ -57,7 +57,7 @@ def main ():
 
     log ("Snoozer file updated")         
     
-    nToUnsnooze = len (myuniIDs)
+    nToUnsnooze = str(len (myuniIDs))
     #converting them into record_IDs
     myIDs = []
     for myuniID in myuniIDs:
@@ -69,7 +69,7 @@ def main ():
     
     scpt = '''
 
-    on run {myIDs, OUTLOOK_LOG_FILE,nToUnsnooze, BEEUSER, BEETOKEN, BEEGOAL}
+    on run {myIDs, OUTLOOK_LOG_FILE,nToUnsnooze, BEEUSER, BEETOKEN, BEEGOAL, BEEMINDER}
         set AppleScript's text item delimiters to ","
         set IDlist to every text item of myIDs
         set AppleScript's text item delimiters to {""} -- Reset delimiters
@@ -79,9 +79,7 @@ def main ():
             set myMailbox to folder "Snoozed" of mailAccount
             set theMsgs to (every message of myMailbox)
             
-            set InboxCount to (count messages in folder "Inbox" of mailAccount)
-	        set SnoozeCount to (count messages in folder "Snoozed" of mailAccount)
-	
+            
             repeat with aMsg in theMsgs -- going through all the messages in the Snoozed folder
                 set msgID to (id of aMsg) as string
                 
@@ -92,6 +90,9 @@ def main ():
                     end if
                 end repeat
             end repeat
+        set InboxCount to (count messages in folder "Inbox" of mailAccount)
+	    set SnoozeCount to (count messages in folder "Snoozed" of mailAccount)
+	
         #logging 
         set LogText to ("ToInbox=" & nToUnsnooze & ", Snoozed=" & SnoozeCount & ", TotalInbox=" & InboxCount)
 
@@ -110,24 +111,26 @@ def main ():
 	    #  ('comment', 'from EvernoteScript!'),
 	    #]
 	
+        if BEEMINDER is equal to "1" then
 	
-	set theURL to "https://www.beeminder.com/api/v1/users/" & BEEUSER & "/goals/" & BEEGOAL & "/datapoints.json" & " -d " & "auth_token=" & BEETOKEN & " -d " & "value=" & InboxCount & " -d " & "comment=from+snoozeScript"
-	#	log quoted form of the theURL
+	        set theURL to "https://www.beeminder.com/api/v1/users/" & BEEUSER & "/goals/" & BEEGOAL & "/datapoints.json" & " -d " & "auth_token=" & BEETOKEN & " -d " & "value=" & InboxCount & " -d " & "comment=from+snoozeScript"
+	        #	log quoted form of the theURL
 	
 
-    # posting to beeminder board
-    do shell script "curl -X POST " & theURL
-
+                # posting to beeminder board
+                do shell script "curl -X POST " & theURL
+        end if
+        return InboxCount
     end run
             '''
 
     IDString = ",".join(myIDs) #passing the list of IDs as a string
-    command = ['osascript', '-e', scpt, IDString, OUTLOOK_LOG_FILE,nToUnsnooze,BEEUSER, BEETOKEN, BEEGOAL]
+    command = ['osascript', '-e', scpt, IDString, OUTLOOK_LOG_FILE,nToUnsnooze,BEEUSER, BEETOKEN, BEEGOAL, BEEMINDER]
     currentInboxCount = check_output(command).decode('utf-8').strip()
-
+    
 
     result= {"items": [{
-        "title": f"Done! {currentInboxCount} emails unsnoozed to Inbox" ,
+        "title": f"Done! {nToUnsnooze} emails unsnoozed to Inbox ({currentInboxCount} total)" ,
         "subtitle": "ready to use outlookSuite now ✅",
         "arg": currentInboxCount,
         "icon": {

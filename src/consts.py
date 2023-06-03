@@ -10,6 +10,7 @@ W22Q2 – 152 ➡️ 212 – 21 ❇️ 344
 
 
 MYSELF = os.getenv('MYSELF')
+BEEMINDER = str(os.getenv('BEEMINDER'))
 BEEUSER = os.getenv('BEEUSER')
 BEETOKEN = os.getenv('BEETOKEN')
 BEEGOAL = os.getenv('BEEGOAL')
@@ -21,8 +22,8 @@ MY_HOME = os.getenv('HOME')
 
 OUTLOOK_MSG_FOLDER = f'{MY_HOME}/Library/Group Containers/UBF8T346G9.Office/Outlook/Outlook 15 Profiles/Main Profile/Data/'
 
-#OUTLOOK_DB_FILE = f'{MY_HOME}/Library/Group Containers/UBF8T346G9.Office/Outlook/Outlook 15 Profiles/Main Profile/Data/Outlook.sqlite'
-OUTLOOK_DB_FILE = '/Users/giovanni/Desktop/Main Profile/Data/Outlook.sqlite'
+OUTLOOK_DB_FILE = f'{MY_HOME}/Library/Group Containers/UBF8T346G9.Office/Outlook/Outlook 15 Profiles/Main Profile/Data/Outlook.sqlite'
+#OUTLOOK_DB_FILE = '/Users/giovanni/Desktop/Main Profile/Data/Outlook.sqlite'
 
 WF_DATA_FOLDER = os.getenv('alfred_workflow_data')
 OUTLOOK_FOLDER_KEY_FILE  = f"{WF_DATA_FOLDER}/keyfolder.json"
@@ -41,6 +42,7 @@ if not os.path.exists(WF_DATA_FOLDER):
 
 if not os.path.exists(OUTLOOK_SNOOZER_FILE):
     with open(OUTLOOK_SNOOZER_FILE, "w") as file:
+        file.write("{}")
         pass  # Creates an empty file
 
 
