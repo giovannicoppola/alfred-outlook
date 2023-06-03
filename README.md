@@ -1,5 +1,5 @@
 # alfred-outlookSuite
-***A suite of tools to interact with Microsoft Outlook with Alfred***
+***A suite of tools to interact with Microsoft Outlook via Alfred***
 
 
 
@@ -69,13 +69,12 @@ src="https://img.shields.io/github/downloads/giovannicoppola/alfred-outlookSuite
 	- `--a` to sort by increasing date (oldest first)
 	- `since:n` will return email received in the last `n` days. `w` and `m` are supported for months and weeks, respectively (e.g. `since:2w`)
 
-## Drafting a new email ⭐
+## Draft a new email ⭐
 - use a keyword (default: `em`) or a hotkey to launch, followed by text. Alfred will create a draft email with subject =  entered text, and save it  in the `Drafts` folder. 
-
-## Email Snoozing 💤
 
 ## Email Saving 💾
 
+## Email Snoozing 💤
 
 ## Folder database refresh 🔄
 - will occur according to the rate in days set in `alfred-outlookSuite` preferences
@@ -92,13 +91,12 @@ src="https://img.shields.io/github/downloads/giovannicoppola/alfred-outlookSuite
 <h1 id="acknowledgments">Acknowledgments 😀</h1>
 
 - Thanks to the [Alfred forum](https://www.alfredforum.com) community!
-- - Original from [@xeric](https://github.com/xeric), completely rewritten 
 - Thanks to [@xeric](https://github.com/xeric) for the first version and the inspiration to build upon it. 
 - https://www.flaticon.com/free-icon/abacus_1046277
 	
 <h1 id="changelog">Changelog 🧰</h1>
 
-- 2023-06-03 version 0.9 complete rewrite
+- 2023-06-03 version 0.9: complete rewrite, renamed `OutlookSuite`
 - 2022-12-05 version 0.3 (Alfred 5)
 - 2022-06-27 version 0.2 (Python 3)
 
