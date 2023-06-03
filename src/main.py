@@ -18,6 +18,7 @@ import subprocess
 
 #initializing JSON output
 result = {"items": [], "variables":{}}
+MYSOURCE = os.getenv('mySource')
 
 def fetchFolder ():
     """
@@ -197,10 +198,13 @@ def main():
 
     myQuery = sys.argv[1]
 
-    if myQuery:
+    if MYSOURCE == "thread":
+        mySQL = f"SELECT * FROM Mail WHERE Message_ThreadTopic = '{myQuery}' ORDER BY Message_TimeSent ASC"
+    elif myQuery:
         mySQL = compileSQL (myQuery,myFolderKeys)
     else:
         mySQL = f"SELECT * FROM Mail ORDER BY Message_TimeSent DESC"
+    
     handle(mySQL)
 
 
@@ -266,7 +270,10 @@ def handle(mySQL):
                 "control": {
                     "valid": 'true',
                     "subtitle": f"🧵 filter entire thread",
-                    "arg": r['Message_ThreadTopic']
+                    "arg": r['Message_ThreadTopic'],
+                    'variables': {
+                        "mySource": 'thread'   
+                    }
                 },
                 "shift": {
                     "valid": 'true',
