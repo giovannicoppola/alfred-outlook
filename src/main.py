@@ -12,6 +12,7 @@ import sqlite3
 from consts import *
 from util import log, timestampToText,  checkingTime, checkTimespan, checkJSON
 import json
+import subprocess
 
 
 
@@ -64,6 +65,7 @@ def compileSQL(myQuery,myFolderKeys):
             
             else: 
                 myString = myElement.split(":")[1].strip()
+                myString = myString.replace("_"," ")
             conditions.append (f"Message_SenderList LIKE '%{myString}%'")
             
         elif myElement.startswith("to:"): #user is searching by sender
@@ -73,6 +75,7 @@ def compileSQL(myQuery,myFolderKeys):
             
             else: 
                 myString = myElement.split(":")[1].strip()
+                myString = myString.replace("_"," ")
             conditions.append (f"Message_RecipientList LIKE '%{myString}%'")
 
         elif myElement.startswith("cc:"): #user is searching by sender
@@ -82,6 +85,7 @@ def compileSQL(myQuery,myFolderKeys):
             
             else: 
                 myString = myElement.split(":")[1].strip()
+                myString = myString.replace("_"," ")
             conditions.append (f"Message_CCRecipientAddressList LIKE '%{myString}%'")
 
         elif myElement == ("has:attach"): #user is searching for messages with attachments
@@ -187,7 +191,8 @@ def main():
     if checkJSON(OUTLOOK_SNOOZER_FILE):
         log("The JSON file has been updated today.")
     else:
-        log("The JSON file has not been updated today.")
+        log("The JSON file has not been updated today. Updating....")
+        subprocess.run(["python3", "unSnoozer.py"])
 
 
     myQuery = sys.argv[1]
@@ -267,11 +272,6 @@ def handle(mySQL):
                     "valid": 'true',
                     "subtitle": f"👀 show preview in large font",
                     "arg": myPreview
-                }, 
-                "command": {
-                    "valid": 'true',
-                    "subtitle": f"something with command",
-                    "arg": ''
                 }},
             "icon": {
                 "path": f""

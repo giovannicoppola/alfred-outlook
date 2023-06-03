@@ -57,9 +57,9 @@ def checkTimespan (myTimeSpan):
 
 def checkJSON(file_path): #check if the JSON file has been updated today
     
-    if os.path.exists(file_path):
-      
-
+    if os.path.exists(file_path) and os.path.getsize(file_path) > 0:
+        log ("checking the JSON snoozer file...")
+        
         # Get the modification timestamp of the file
         timestamp = os.path.getmtime(file_path)
 

@@ -48,7 +48,7 @@ src="https://img.shields.io/github/downloads/giovannicoppola/alfred-outlookSuite
 - *Optional*:	
 	- set the keyword (or hotkey) to launch `alfred-outlookSuite` (default: `olk`) 
 	- set the keyword (or hotkey) to force-refresh the folder list (default: `outlook::refresh`)
-	- set your name, so that it can be used in `from:me` and `to:me` searches
+	- set your name, so that it can be used in `from:me`, `to:me`, and `cc:me` searches
 	- *Text to hide in subject* Enter here comma-separated text strings that you don't want to see in the 'Subject' result (e.g. [External], <External> etc.), therefore saving important real estate in Alfred's output.
 	- *Folders to exclude* List here, comma-separated, the folders you would like to exclude from the search. Default: `Deleted Items`. 
 	- *Folders list refresh rate*	- The folder list is generated periodically (default: 30 days) to improve performance, as folders change less often. Enter your preferred number of days here.
@@ -60,10 +60,11 @@ src="https://img.shields.io/github/downloads/giovannicoppola/alfred-outlookSuite
 ## Search your email 🔍
 
 - standard search: one or more search strings will search both the subject of an email, and its preview (first 250 characters). 
-- gmail-like search strings, listed below, supported (remember to set the MYSELF variable in the Workflow COnfiguration. 
-	- `from:` (including `from:me`)
+- gmail-like search strings, listed below, supported (remember to set the MYSELF variable in the Workflow Configuration. 
+	- `from:` (including `from:me`). Replace space with underscore if you want to specify the whole name (e.g. `from:john_appleseed`)
 	- `to:` (including `to:me`)
-	- `subject:`, `cc:`, `has:attach`, `is:unread`, `is:read`, `is:important`, `is:unimportant`  
+	- `cc:` (including `cc:me`)
+	- `subject:`,  `has:attach`, `is:unread`, `is:read`, `is:important`, `is:unimportant`  
 	- `folder:` (note: replace spaces with underscores if the folder name contains spaces, e.g. `folder:sent_items`
 	- `-text` to exclude text 
 	- `--a` to sort by increasing date (oldest first)
@@ -107,6 +108,7 @@ src="https://img.shields.io/github/downloads/giovannicoppola/alfred-outlookSuite
 - Abacus icon: https://www.flaticon.com/free-icon/abacus_1046277
 - Snooze icon: https://www.flaticon.com/free-icon/snooze_3602333
 - https://www.flaticon.com/free-icon/chapter_6348276
+- https://www.flaticon.com/free-icon/diskette_907027
 	
 <h1 id="changelog">Changelog 🧰</h1>
 

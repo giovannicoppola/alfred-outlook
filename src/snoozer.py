@@ -79,7 +79,8 @@ def main():
     with open(OUTLOOK_SNOOZER_FILE, "w") as f:
         json.dump(mySnoozes, f, indent=4)
 
-    log ("Snoozer file updated")         
+    log ("Snoozer file updated")
+    print (MY_SNOOZE_DATE)
     
 
 
