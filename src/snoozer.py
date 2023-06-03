@@ -22,8 +22,8 @@ from consts import *
 
 def main():
 
-#MY_SNOOZE_DATE = sys.argv[1]
-    MY_SNOOZE_DATE = "2024-01-01"
+    MY_SNOOZE_DATE = sys.argv[1]
+    
 
     scpt = '''
         tell application "Microsoft Outlook"
@@ -58,11 +58,11 @@ def main():
         
     end run '''
 
-    #command = ['osascript', '-e', scpt]
-    #myOutput = check_output(command).decode('utf-8').strip()
+    command = ['osascript', '-e', scpt]
+    myOutput = check_output(command).decode('utf-8').strip()
 
 
-    myOutput = "97332:::97201:::97198:::97195:::97193:::97191"
+    
     myIDs = myOutput.split(":::")
     
     if os.path.exists(OUTLOOK_SNOOZER_FILE):

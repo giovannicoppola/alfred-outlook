@@ -94,8 +94,8 @@ def main ():
             '''
 
     IDString = ",".join(myIDs) #passing the list of IDs as a string
-    #command = ['osascript', '-e', scpt, IDString]
-    #check_output(command).decode('utf-8').strip()
+    command = ['osascript', '-e', scpt, IDString]
+    check_output(command).decode('utf-8').strip()
 
 
 if __name__ == '__main__':

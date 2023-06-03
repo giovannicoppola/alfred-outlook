@@ -56,17 +56,21 @@ def checkTimespan (myTimeSpan):
 
 
 def checkJSON(file_path): #check if the JSON file has been updated today
-    # Get the modification timestamp of the file
-    timestamp = os.path.getmtime(file_path)
+    
+    if os.path.exists(file_path):
+      
 
-    # Convert the timestamp to a datetime object
-    modification_date = datetime.fromtimestamp(timestamp)
+        # Get the modification timestamp of the file
+        timestamp = os.path.getmtime(file_path)
 
-    # Get today's date
-    today = datetime.now().date()
+        # Convert the timestamp to a datetime object
+        modification_date = datetime.fromtimestamp(timestamp)
 
-    # Compare the modification date with today's date
-    return modification_date.date() == today
+        # Get today's date
+        today = datetime.now().date()
+
+        # Compare the modification date with today's date
+        return modification_date.date() == today
 
 
 def getFolderData():

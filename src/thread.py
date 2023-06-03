@@ -8,7 +8,7 @@ import sqlite3
 from consts import *
 from util import log, timestampToText
 import json
-from config import MYSELF
+
 
     
 
@@ -20,7 +20,6 @@ result = {"items": [], "variables":{}}
     
     
 def main():
-    log ("SCRIPT STARTED")
     MY_INPUT = sys.argv[1]
     mySQL = f"SELECT * FROM Mail WHERE Message_ThreadTopic = '{MY_INPUT}' ORDER BY Message_TimeSent ASC"
     handle(mySQL)
@@ -30,16 +29,8 @@ def main():
 
 def handle(mySQL):
     
-    homePath = os.environ['HOME']
-    profile = OUTLOOK_DEFAULT_PROFILE
-
     
-    outlookData = homePath + OUTLOOK_DATA_PARENT + profile + OUTLOOK_DATA_FOLDER
-    outlookData = "/Users/giovanni/Desktop/Main Profile/Data/"
-
-    MY_DATABASE = f"{outlookData}Outlook.sqlite"
-    
-    db = sqlite3.connect(MY_DATABASE)
+    db = sqlite3.connect(OUTLOOK_DB_FILE)
     db.row_factory = sqlite3.Row
     
     rs = db.execute(mySQL).fetchall()
@@ -49,7 +40,7 @@ def handle(mySQL):
     attIcon = ''
     for r in rs:
         myCounter += 1
-        timeRec = timestampToText (r['Message_TimeSent'])
+        timeRec = timestampToText (r['Message_TimeSent'],"%Y-%m-%d %H:%M")
         if r['Message_HasAttachment'] == 1:
             attIcon = '📎'
         result["items"].append({

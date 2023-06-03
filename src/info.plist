@@ -8,6 +8,45 @@
 	<string>myWorkflows</string>
 	<key>connections</key>
 	<dict>
+		<key>1E736616-8136-4D8B-A8BF-B9B493960359</key>
+		<array>
+			<dict>
+				<key>destinationuid</key>
+				<string>DCD17DB9-6717-4317-A671-E9C200AFA1FD</string>
+				<key>modifiers</key>
+				<integer>0</integer>
+				<key>modifiersubtext</key>
+				<string></string>
+				<key>vitoclose</key>
+				<false/>
+			</dict>
+		</array>
+		<key>2FFBF97B-DE4E-4772-A4AA-13FF90C8FA3F</key>
+		<array>
+			<dict>
+				<key>destinationuid</key>
+				<string>80166171-CC12-4381-AB77-430104E8C23D</string>
+				<key>modifiers</key>
+				<integer>0</integer>
+				<key>modifiersubtext</key>
+				<string></string>
+				<key>vitoclose</key>
+				<false/>
+			</dict>
+		</array>
+		<key>42F63D5A-6119-4293-B847-C55068C567A1</key>
+		<array>
+			<dict>
+				<key>destinationuid</key>
+				<string>FBA71C18-7D6E-4EDF-BA3C-9EC341C2914D</string>
+				<key>modifiers</key>
+				<integer>0</integer>
+				<key>modifiersubtext</key>
+				<string></string>
+				<key>vitoclose</key>
+				<false/>
+			</dict>
+		</array>
 		<key>4E264C77-CCC6-4653-95B1-B8E7665B0BC1</key>
 		<array>
 			<dict>
@@ -51,6 +90,45 @@
 				<true/>
 			</dict>
 		</array>
+		<key>6C32DE5F-C7AA-4C22-9A06-67DEDA5B841F</key>
+		<array>
+			<dict>
+				<key>destinationuid</key>
+				<string>EA2B620B-81F9-4C32-9478-11B5F2E972BD</string>
+				<key>modifiers</key>
+				<integer>0</integer>
+				<key>modifiersubtext</key>
+				<string></string>
+				<key>vitoclose</key>
+				<false/>
+			</dict>
+		</array>
+		<key>80166171-CC12-4381-AB77-430104E8C23D</key>
+		<array>
+			<dict>
+				<key>destinationuid</key>
+				<string>9369046C-8CCD-4DE5-93C2-2D310522692F</string>
+				<key>modifiers</key>
+				<integer>0</integer>
+				<key>modifiersubtext</key>
+				<string></string>
+				<key>vitoclose</key>
+				<false/>
+			</dict>
+		</array>
+		<key>8A0C263B-F494-4497-AAEA-FE4984B29AE1</key>
+		<array>
+			<dict>
+				<key>destinationuid</key>
+				<string>7283E189-7EC0-4FFD-980D-108AF6FDE54C</string>
+				<key>modifiers</key>
+				<integer>0</integer>
+				<key>modifiersubtext</key>
+				<string></string>
+				<key>vitoclose</key>
+				<false/>
+			</dict>
+		</array>
 		<key>8B752135-8C02-4D13-925A-417FA07D99F6</key>
 		<array>
 			<dict>
@@ -66,6 +144,19 @@
 			<dict>
 				<key>destinationuid</key>
 				<string>1F19DDE6-9AE4-44FD-A28A-8479329F2800</string>
+				<key>modifiers</key>
+				<integer>0</integer>
+				<key>modifiersubtext</key>
+				<string></string>
+				<key>vitoclose</key>
+				<false/>
+			</dict>
+		</array>
+		<key>8BB56C8E-82DB-40CA-928E-E95FBE463A55</key>
+		<array>
+			<dict>
+				<key>destinationuid</key>
+				<string>FBA71C18-7D6E-4EDF-BA3C-9EC341C2914D</string>
 				<key>modifiers</key>
 				<integer>0</integer>
 				<key>modifiersubtext</key>
@@ -113,6 +204,81 @@
 				<false/>
 			</dict>
 		</array>
+		<key>DBF8FBC6-D827-4B5E-BF01-2CFC47E33B62</key>
+		<array>
+			<dict>
+				<key>destinationuid</key>
+				<string>8A0C263B-F494-4497-AAEA-FE4984B29AE1</string>
+				<key>modifiers</key>
+				<integer>0</integer>
+				<key>modifiersubtext</key>
+				<string></string>
+				<key>vitoclose</key>
+				<false/>
+			</dict>
+		</array>
+		<key>E954A57D-1235-483D-A513-16945C412559</key>
+		<array>
+			<dict>
+				<key>destinationuid</key>
+				<string>01F5A176-C99F-4381-BE45-A80B0CB5813E</string>
+				<key>modifiers</key>
+				<integer>0</integer>
+				<key>modifiersubtext</key>
+				<string></string>
+				<key>vitoclose</key>
+				<false/>
+			</dict>
+		</array>
+		<key>EA2B620B-81F9-4C32-9478-11B5F2E972BD</key>
+		<array>
+			<dict>
+				<key>destinationuid</key>
+				<string>2FFBF97B-DE4E-4772-A4AA-13FF90C8FA3F</string>
+				<key>modifiers</key>
+				<integer>0</integer>
+				<key>modifiersubtext</key>
+				<string></string>
+				<key>vitoclose</key>
+				<false/>
+			</dict>
+		</array>
+		<key>F99B21A1-20D8-43FE-B6DF-9C812AC998BC</key>
+		<array>
+			<dict>
+				<key>destinationuid</key>
+				<string>01F5A176-C99F-4381-BE45-A80B0CB5813E</string>
+				<key>modifiers</key>
+				<integer>0</integer>
+				<key>modifiersubtext</key>
+				<string></string>
+				<key>vitoclose</key>
+				<false/>
+			</dict>
+		</array>
+		<key>FBA71C18-7D6E-4EDF-BA3C-9EC341C2914D</key>
+		<array>
+			<dict>
+				<key>destinationuid</key>
+				<string>E81C01F2-F92E-4611-93EE-16F5F93C612C</string>
+				<key>modifiers</key>
+				<integer>0</integer>
+				<key>modifiersubtext</key>
+				<string></string>
+				<key>vitoclose</key>
+				<false/>
+			</dict>
+			<dict>
+				<key>destinationuid</key>
+				<string>6C32DE5F-C7AA-4C22-9A06-67DEDA5B841F</string>
+				<key>modifiers</key>
+				<integer>0</integer>
+				<key>modifiersubtext</key>
+				<string></string>
+				<key>vitoclose</key>
+				<false/>
+			</dict>
+		</array>
 	</dict>
 	<key>createdby</key>
 	<string>giovanni</string>
@@ -124,25 +290,6 @@
 	<string>Outlook Suite</string>
 	<key>objects</key>
 	<array>
-		<dict>
-			<key>config</key>
-			<dict>
-				<key>autopaste</key>
-				<false/>
-				<key>clipboardtext</key>
-				<string>{query}</string>
-				<key>ignoredynamicplaceholders</key>
-				<false/>
-				<key>transient</key>
-				<false/>
-			</dict>
-			<key>type</key>
-			<string>alfred.workflow.output.clipboard</string>
-			<key>uid</key>
-			<string>364681AF-CD8C-4557-A3D1-A1797684D961</string>
-			<key>version</key>
-			<integer>3</integer>
-		</dict>
 		<dict>
 			<key>config</key>
 			<dict>
@@ -187,6 +334,25 @@
 			<string>alfred.workflow.input.scriptfilter</string>
 			<key>uid</key>
 			<string>3E3C618C-0EA6-485B-86EF-6BB42E6AC0D0</string>
+			<key>version</key>
+			<integer>3</integer>
+		</dict>
+		<dict>
+			<key>config</key>
+			<dict>
+				<key>autopaste</key>
+				<false/>
+				<key>clipboardtext</key>
+				<string>{query}</string>
+				<key>ignoredynamicplaceholders</key>
+				<false/>
+				<key>transient</key>
+				<false/>
+			</dict>
+			<key>type</key>
+			<string>alfred.workflow.output.clipboard</string>
+			<key>uid</key>
+			<string>364681AF-CD8C-4557-A3D1-A1797684D961</string>
 			<key>version</key>
 			<integer>3</integer>
 		</dict>
@@ -312,37 +478,6 @@
 		<dict>
 			<key>config</key>
 			<dict>
-				<key>action</key>
-				<integer>0</integer>
-				<key>argument</key>
-				<integer>0</integer>
-				<key>focusedappvariable</key>
-				<false/>
-				<key>focusedappvariablename</key>
-				<string></string>
-				<key>hotkey</key>
-				<integer>31</integer>
-				<key>hotmod</key>
-				<integer>1310720</integer>
-				<key>hotstring</key>
-				<string>O</string>
-				<key>leftcursor</key>
-				<false/>
-				<key>modsmode</key>
-				<integer>0</integer>
-				<key>relatedAppsMode</key>
-				<integer>0</integer>
-			</dict>
-			<key>type</key>
-			<string>alfred.workflow.trigger.hotkey</string>
-			<key>uid</key>
-			<string>9D74AA26-60A9-44F2-BCE8-593F2F8D6662</string>
-			<key>version</key>
-			<integer>2</integer>
-		</dict>
-		<dict>
-			<key>config</key>
-			<dict>
 				<key>alfredfiltersresults</key>
 				<false/>
 				<key>alfredfiltersresultsmatchmode</key>
@@ -388,6 +523,37 @@
 			<string>4E264C77-CCC6-4653-95B1-B8E7665B0BC1</string>
 			<key>version</key>
 			<integer>3</integer>
+		</dict>
+		<dict>
+			<key>config</key>
+			<dict>
+				<key>action</key>
+				<integer>0</integer>
+				<key>argument</key>
+				<integer>0</integer>
+				<key>focusedappvariable</key>
+				<false/>
+				<key>focusedappvariablename</key>
+				<string></string>
+				<key>hotkey</key>
+				<integer>31</integer>
+				<key>hotmod</key>
+				<integer>1310720</integer>
+				<key>hotstring</key>
+				<string>O</string>
+				<key>leftcursor</key>
+				<false/>
+				<key>modsmode</key>
+				<integer>0</integer>
+				<key>relatedAppsMode</key>
+				<integer>0</integer>
+			</dict>
+			<key>type</key>
+			<string>alfred.workflow.trigger.hotkey</string>
+			<key>uid</key>
+			<string>9D74AA26-60A9-44F2-BCE8-593F2F8D6662</string>
+			<key>version</key>
+			<integer>2</integer>
 		</dict>
 		<dict>
 			<key>config</key>
@@ -442,6 +608,37 @@
 		<dict>
 			<key>config</key>
 			<dict>
+				<key>action</key>
+				<integer>0</integer>
+				<key>argument</key>
+				<integer>0</integer>
+				<key>focusedappvariable</key>
+				<false/>
+				<key>focusedappvariablename</key>
+				<string></string>
+				<key>hotkey</key>
+				<integer>0</integer>
+				<key>hotmod</key>
+				<integer>0</integer>
+				<key>hotstring</key>
+				<string></string>
+				<key>leftcursor</key>
+				<false/>
+				<key>modsmode</key>
+				<integer>0</integer>
+				<key>relatedAppsMode</key>
+				<integer>0</integer>
+			</dict>
+			<key>type</key>
+			<string>alfred.workflow.trigger.hotkey</string>
+			<key>uid</key>
+			<string>E954A57D-1235-483D-A513-16945C412559</string>
+			<key>version</key>
+			<integer>2</integer>
+		</dict>
+		<dict>
+			<key>config</key>
+			<dict>
 				<key>alignment</key>
 				<integer>0</integer>
 				<key>backgroundcolor</key>
@@ -467,6 +664,195 @@
 			<string>A7249790-0513-4EB7-864D-4686E33CAFCF</string>
 			<key>version</key>
 			<integer>3</integer>
+		</dict>
+		<dict>
+			<key>config</key>
+			<dict>
+				<key>concurrently</key>
+				<false/>
+				<key>escaping</key>
+				<integer>102</integer>
+				<key>script</key>
+				<string>python3 snoozer.py "$1"</string>
+				<key>scriptargtype</key>
+				<integer>1</integer>
+				<key>scriptfile</key>
+				<string></string>
+				<key>type</key>
+				<integer>5</integer>
+			</dict>
+			<key>type</key>
+			<string>alfred.workflow.action.script</string>
+			<key>uid</key>
+			<string>7283E189-7EC0-4FFD-980D-108AF6FDE54C</string>
+			<key>version</key>
+			<integer>2</integer>
+		</dict>
+		<dict>
+			<key>config</key>
+			<dict>
+				<key>alfredfiltersresults</key>
+				<false/>
+				<key>alfredfiltersresultsmatchmode</key>
+				<integer>0</integer>
+				<key>argumenttreatemptyqueryasnil</key>
+				<false/>
+				<key>argumenttrimmode</key>
+				<integer>0</integer>
+				<key>argumenttype</key>
+				<integer>0</integer>
+				<key>escaping</key>
+				<integer>127</integer>
+				<key>keyword</key>
+				<string>olz</string>
+				<key>queuedelaycustom</key>
+				<integer>1</integer>
+				<key>queuedelayimmediatelyinitially</key>
+				<false/>
+				<key>queuedelaymode</key>
+				<integer>0</integer>
+				<key>queuemode</key>
+				<integer>1</integer>
+				<key>runningsubtext</key>
+				<string></string>
+				<key>script</key>
+				<string>#script completed in Vancouver, Saturday April 27, 2019
+# revised on Tuesday, May 26, 2020, 12:04 PM to update to JSON and switch to date-based mode. 
+# updated on Wednesday, September 1, afternoon: adding the number of snoozed emails to the date. 
+
+
+match=$(date -v +{query}d '+%A %B %d, %Y') 
+snoozeDate=$(date -v +{query}d '+%Y-%m-%d')
+
+myCount=$(python3 countSnoozed.py $snoozeDate 2&gt;&amp;1)    
+
+dayString="days"  
+if [ {query} -eq 1 ]; then
+    dayString="day"  
+fi
+
+
+cat &lt;&lt; EOB
+
+	{"items": [
+
+
+    {
+        "title": "Snooze until $match ($myCount)",
+        "subtitle": "Snooze {query} $dayString and Archive",
+        "arg": "$snoozeDate",
+        "icon": {
+			"path": "icons/snooze.png"
+			}	    
+	},
+
+
+
+	]}
+EOB
+
+
+
+</string>
+				<key>scriptargtype</key>
+				<integer>0</integer>
+				<key>scriptfile</key>
+				<string></string>
+				<key>subtext</key>
+				<string>Enter number of days, or weeks (w) or months (m)</string>
+				<key>title</key>
+				<string>Snooze the currently selected email</string>
+				<key>type</key>
+				<integer>0</integer>
+				<key>withspace</key>
+				<true/>
+			</dict>
+			<key>type</key>
+			<string>alfred.workflow.input.scriptfilter</string>
+			<key>uid</key>
+			<string>8A0C263B-F494-4497-AAEA-FE4984B29AE1</string>
+			<key>version</key>
+			<integer>3</integer>
+		</dict>
+		<dict>
+			<key>config</key>
+			<dict>
+				<key>action</key>
+				<integer>0</integer>
+				<key>argument</key>
+				<integer>0</integer>
+				<key>focusedappvariable</key>
+				<false/>
+				<key>focusedappvariablename</key>
+				<string></string>
+				<key>hotkey</key>
+				<integer>37</integer>
+				<key>hotmod</key>
+				<integer>1179648</integer>
+				<key>hotstring</key>
+				<string>L</string>
+				<key>leftcursor</key>
+				<false/>
+				<key>modsmode</key>
+				<integer>2</integer>
+				<key>relatedApps</key>
+				<array>
+					<string>com.microsoft.Outlook</string>
+				</array>
+				<key>relatedAppsMode</key>
+				<integer>1</integer>
+			</dict>
+			<key>type</key>
+			<string>alfred.workflow.trigger.hotkey</string>
+			<key>uid</key>
+			<string>DBF8FBC6-D827-4B5E-BF01-2CFC47E33B62</string>
+			<key>version</key>
+			<integer>2</integer>
+		</dict>
+		<dict>
+			<key>config</key>
+			<dict>
+				<key>concurrently</key>
+				<false/>
+				<key>escaping</key>
+				<integer>68</integer>
+				<key>script</key>
+				<string>on run argv	set myDraft to item 1 of argv
+	tell application "Microsoft Outlook"		set new_message to make new outgoing message with properties {subject: myDraft}	end tellend run</string>
+				<key>scriptargtype</key>
+				<integer>1</integer>
+				<key>scriptfile</key>
+				<string></string>
+				<key>type</key>
+				<integer>6</integer>
+			</dict>
+			<key>type</key>
+			<string>alfred.workflow.action.script</string>
+			<key>uid</key>
+			<string>01F5A176-C99F-4381-BE45-A80B0CB5813E</string>
+			<key>version</key>
+			<integer>2</integer>
+		</dict>
+		<dict>
+			<key>config</key>
+			<dict>
+				<key>argumenttype</key>
+				<integer>0</integer>
+				<key>keyword</key>
+				<string>em</string>
+				<key>subtext</key>
+				<string>Write Subject</string>
+				<key>text</key>
+				<string>New Email Draft</string>
+				<key>withspace</key>
+				<true/>
+			</dict>
+			<key>type</key>
+			<string>alfred.workflow.input.keyword</string>
+			<key>uid</key>
+			<string>F99B21A1-20D8-43FE-B6DF-9C812AC998BC</string>
+			<key>version</key>
+			<integer>1</integer>
 		</dict>
 		<dict>
 			<key>config</key>
@@ -503,7 +889,7 @@
 				<key>escaping</key>
 				<integer>102</integer>
 				<key>keyword</key>
-				<string>{var:refreshkeyword}</string>
+				<string>olu</string>
 				<key>queuedelaycustom</key>
 				<integer>3</integer>
 				<key>queuedelayimmediatelyinitially</key>
@@ -513,10 +899,9 @@
 				<key>queuemode</key>
 				<integer>1</integer>
 				<key>runningsubtext</key>
-				<string>please wait while I refresh... ⏳</string>
+				<string></string>
 				<key>script</key>
-				<string>python3 alfredo_ops.py "rebuild" "$1"
-</string>
+				<string>python3 unsnoozer.py</string>
 				<key>scriptargtype</key>
 				<integer>1</integer>
 				<key>scriptfile</key>
@@ -524,18 +909,401 @@
 				<key>subtext</key>
 				<string></string>
 				<key>title</key>
-				<string>refresh Outlook folder database 👀</string>
+				<string>Run unsnoozer</string>
 				<key>type</key>
-				<integer>0</integer>
+				<integer>5</integer>
 				<key>withspace</key>
 				<false/>
 			</dict>
 			<key>type</key>
 			<string>alfred.workflow.input.scriptfilter</string>
 			<key>uid</key>
-			<string>7752D29D-6600-481B-8093-4E8BDDE5FF8A</string>
+			<string>DCD17DB9-6717-4317-A671-E9C200AFA1FD</string>
 			<key>version</key>
 			<integer>3</integer>
+		</dict>
+		<dict>
+			<key>config</key>
+			<dict>
+				<key>action</key>
+				<integer>0</integer>
+				<key>argument</key>
+				<integer>0</integer>
+				<key>focusedappvariable</key>
+				<false/>
+				<key>focusedappvariablename</key>
+				<string></string>
+				<key>hotkey</key>
+				<integer>1</integer>
+				<key>hotmod</key>
+				<integer>1835008</integer>
+				<key>hotstring</key>
+				<string>S</string>
+				<key>leftcursor</key>
+				<false/>
+				<key>modsmode</key>
+				<integer>0</integer>
+				<key>relatedApps</key>
+				<array>
+					<string>com.microsoft.Outlook</string>
+				</array>
+				<key>relatedAppsMode</key>
+				<integer>1</integer>
+			</dict>
+			<key>type</key>
+			<string>alfred.workflow.trigger.hotkey</string>
+			<key>uid</key>
+			<string>1E736616-8136-4D8B-A8BF-B9B493960359</string>
+			<key>version</key>
+			<integer>2</integer>
+		</dict>
+		<dict>
+			<key>config</key>
+			<dict>
+				<key>lastpathcomponent</key>
+				<false/>
+				<key>onlyshowifquerypopulated</key>
+				<false/>
+				<key>removeextension</key>
+				<false/>
+				<key>text</key>
+				<string>in {query}</string>
+				<key>title</key>
+				<string>Archived 🗄</string>
+			</dict>
+			<key>type</key>
+			<string>alfred.workflow.output.notification</string>
+			<key>uid</key>
+			<string>E81C01F2-F92E-4611-93EE-16F5F93C612C</string>
+			<key>version</key>
+			<integer>1</integer>
+		</dict>
+		<dict>
+			<key>config</key>
+			<dict>
+				<key>concurrently</key>
+				<false/>
+				<key>escaping</key>
+				<integer>68</integer>
+				<key>script</key>
+				<string>on run argv
+	
+	
+set folderName to "Containers/com.microsoft.Outlook/Data/Library/Application Support/com.microsoft.Outlook/SavingFolder"
+
+tell application "System Events"
+	set libraryFolderPath to POSIX path of (path to library folder from user domain)
+	set folderPath to libraryFolderPath &amp; "/" &amp; folderName
+	
+	if not (exists folder folderPath) then
+		-- Folder doesn't exist, create it
+		do shell script "mkdir -p " &amp; quoted form of folderPath
+	end if
+end tell
+
+
+set theFileName to POSIX file folderPath
+
+	tell application "Microsoft Outlook"
+		-- GET EMAIL(S)
+		set messages_ to the selection
+	
+#		--ITERATE THROUGH THEM AND SAVE THEM
+		repeat with i from 1 to number of items in messages_
+			set theMsg to item i of messages_
+
+            try
+                set myID to id of theMsg
+                set dateObj to time received of theMsg
+                
+            end try
+
+
+			
+			set theMonth to text -1 thru -2 of ("0" &amp; (month of dateObj as number))
+			set theDay to text -1 thru -2 of ("0" &amp; day of dateObj)
+			set theYear to year of dateObj
+			set dateStamp to (((theYear as string) &amp; "-" &amp; theMonth as string) &amp; "-" &amp; theDay as string)
+		
+			set mySubject to subject of theMsg
+			set myEditSubject to do shell script "echo " &amp; quoted form of mySubject &amp; " | sed 's|[&lt;&gt;?|:/]||g'"			
+			set fullName to dateStamp &amp; "_" &amp; myEditSubject &amp; "_" &amp; myID &amp; ".eml"
+			set textPath to (folderPath &amp; "/" &amp; fullName) as string
+			save theMsg in textPath
+		
+		end repeat
+
+
+		-- ARCHIVE emails
+		set messageAccount to first exchange account
+
+		try
+
+		repeat with aMessage in messages_
+			move aMessage to folder named "Archive" of messageAccount
+		end repeat
+
+
+		end try
+
+	end tell
+
+	set sourceFolder to theFileName as alias
+	set destinationFolder to POSIX file (first item of argv as text)
+	tell application "Finder"
+	
+		move entire contents of sourceFolder to destinationFolder
+	
+	end tell
+set finalPath to first item of argv as text &amp; "/" &amp; fullName
+return finalPath
+end run</string>
+				<key>scriptargtype</key>
+				<integer>1</integer>
+				<key>scriptfile</key>
+				<string>/Users/giovanni.coppola/OneDrive - Regeneron Pharmaceuticals, Inc/MyScripts/FocusFolder.scpt</string>
+				<key>type</key>
+				<integer>6</integer>
+			</dict>
+			<key>type</key>
+			<string>alfred.workflow.action.script</string>
+			<key>uid</key>
+			<string>6C32DE5F-C7AA-4C22-9A06-67DEDA5B841F</string>
+			<key>version</key>
+			<integer>2</integer>
+		</dict>
+		<dict>
+			<key>config</key>
+			<dict>
+				<key>action</key>
+				<integer>0</integer>
+				<key>argument</key>
+				<integer>0</integer>
+				<key>focusedappvariable</key>
+				<false/>
+				<key>focusedappvariablename</key>
+				<string></string>
+				<key>hotkey</key>
+				<integer>14</integer>
+				<key>hotmod</key>
+				<integer>1310720</integer>
+				<key>hotstring</key>
+				<string>E</string>
+				<key>leftcursor</key>
+				<false/>
+				<key>modsmode</key>
+				<integer>0</integer>
+				<key>relatedApps</key>
+				<array>
+					<string>com.microsoft.Outlook</string>
+				</array>
+				<key>relatedAppsMode</key>
+				<integer>1</integer>
+			</dict>
+			<key>type</key>
+			<string>alfred.workflow.trigger.hotkey</string>
+			<key>uid</key>
+			<string>8BB56C8E-82DB-40CA-928E-E95FBE463A55</string>
+			<key>version</key>
+			<integer>2</integer>
+		</dict>
+		<dict>
+			<key>config</key>
+			<dict>
+				<key>concurrently</key>
+				<false/>
+				<key>escaping</key>
+				<integer>102</integer>
+				<key>script</key>
+				<string>python3 removeThree.py "$1"</string>
+				<key>scriptargtype</key>
+				<integer>1</integer>
+				<key>scriptfile</key>
+				<string></string>
+				<key>type</key>
+				<integer>5</integer>
+			</dict>
+			<key>type</key>
+			<string>alfred.workflow.action.script</string>
+			<key>uid</key>
+			<string>80166171-CC12-4381-AB77-430104E8C23D</string>
+			<key>version</key>
+			<integer>2</integer>
+		</dict>
+		<dict>
+			<key>config</key>
+			<dict>
+				<key>anchorfields</key>
+				<true/>
+				<key>argumenttrimmode</key>
+				<integer>0</integer>
+				<key>argumenttype</key>
+				<integer>0</integer>
+				<key>daterange</key>
+				<integer>0</integer>
+				<key>fields</key>
+				<array>
+					<dict>
+						<key>field</key>
+						<string>kMDItemDisplayName</string>
+						<key>not</key>
+						<false/>
+						<key>split</key>
+						<true/>
+						<key>value</key>
+						<string>{query}</string>
+						<key>words</key>
+						<true/>
+					</dict>
+					<dict>
+						<key>field</key>
+						<string>kMDItemAlternateNames</string>
+						<key>not</key>
+						<false/>
+						<key>split</key>
+						<true/>
+						<key>value</key>
+						<string>{query}</string>
+						<key>words</key>
+						<true/>
+					</dict>
+					<dict>
+						<key>field</key>
+						<string>kMDItemFinderComment</string>
+						<key>not</key>
+						<false/>
+						<key>split</key>
+						<true/>
+						<key>value</key>
+						<string>{query}</string>
+						<key>words</key>
+						<true/>
+					</dict>
+				</array>
+				<key>includesystem</key>
+				<false/>
+				<key>limit</key>
+				<integer>0</integer>
+				<key>runningsubtext</key>
+				<string></string>
+				<key>scopes</key>
+				<array/>
+				<key>sortmode</key>
+				<integer>0</integer>
+				<key>subtext</key>
+				<string>... to archive the selected email in</string>
+				<key>title</key>
+				<string>Select folder ...</string>
+				<key>types</key>
+				<array>
+					<string>public.folder</string>
+				</array>
+				<key>withspace</key>
+				<true/>
+			</dict>
+			<key>type</key>
+			<string>alfred.workflow.input.filefilter</string>
+			<key>uid</key>
+			<string>FBA71C18-7D6E-4EDF-BA3C-9EC341C2914D</string>
+			<key>version</key>
+			<integer>2</integer>
+		</dict>
+		<dict>
+			<key>config</key>
+			<dict>
+				<key>concurrently</key>
+				<false/>
+				<key>escaping</key>
+				<integer>68</integer>
+				<key>script</key>
+				<string>// convert POSIX path (e.g. /path/to/file) to a Markdown URL
+function markdownUrl(path) {
+  // encode path for use in a URL
+  let url = 'file://' + encodeURI(path)
+  // also encode parentheses to ensure a valid Markdown URL
+  url = url.replace('(', '%28').replace(')', '%29')
+  // return Markdown-formatted URL
+  return `[email](${url})`
+}
+
+function run(argv) {
+  // first command-line argument is the filepath
+  return markdownUrl(argv[0])
+}</string>
+				<key>scriptargtype</key>
+				<integer>1</integer>
+				<key>scriptfile</key>
+				<string></string>
+				<key>type</key>
+				<integer>7</integer>
+			</dict>
+			<key>type</key>
+			<string>alfred.workflow.action.script</string>
+			<key>uid</key>
+			<string>EA2B620B-81F9-4C32-9478-11B5F2E972BD</string>
+			<key>version</key>
+			<integer>2</integer>
+		</dict>
+		<dict>
+			<key>config</key>
+			<dict>
+				<key>autopaste</key>
+				<false/>
+				<key>clipboardtext</key>
+				<string>{query}</string>
+				<key>ignoredynamicplaceholders</key>
+				<false/>
+				<key>transient</key>
+				<false/>
+			</dict>
+			<key>type</key>
+			<string>alfred.workflow.output.clipboard</string>
+			<key>uid</key>
+			<string>9369046C-8CCD-4DE5-93C2-2D310522692F</string>
+			<key>version</key>
+			<integer>3</integer>
+		</dict>
+		<dict>
+			<key>config</key>
+			<dict>
+				<key>matchmode</key>
+				<integer>1</integer>
+				<key>matchstring</key>
+				<string>\n</string>
+				<key>regexcaseinsensitive</key>
+				<false/>
+				<key>regexmultiline</key>
+				<false/>
+				<key>replacestring</key>
+				<string> </string>
+			</dict>
+			<key>type</key>
+			<string>alfred.workflow.utility.replace</string>
+			<key>uid</key>
+			<string>2FFBF97B-DE4E-4772-A4AA-13FF90C8FA3F</string>
+			<key>version</key>
+			<integer>2</integer>
+		</dict>
+		<dict>
+			<key>config</key>
+			<dict>
+				<key>argumenttype</key>
+				<integer>2</integer>
+				<key>keyword</key>
+				<string>ols</string>
+				<key>subtext</key>
+				<string>Choose folder</string>
+				<key>text</key>
+				<string>Save Outlook Email</string>
+				<key>withspace</key>
+				<false/>
+			</dict>
+			<key>type</key>
+			<string>alfred.workflow.input.keyword</string>
+			<key>uid</key>
+			<string>42F63D5A-6119-4293-B847-C55068C567A1</string>
+			<key>version</key>
+			<integer>1</integer>
 		</dict>
 	</array>
 	<key>readme</key>
@@ -556,6 +1324,20 @@
 More info: https://github.com/giovannicoppola/alfred-outlook</string>
 	<key>uidata</key>
 	<dict>
+		<key>01F5A176-C99F-4381-BE45-A80B0CB5813E</key>
+		<dict>
+			<key>xpos</key>
+			<real>940</real>
+			<key>ypos</key>
+			<real>460</real>
+		</dict>
+		<key>1E736616-8136-4D8B-A8BF-B9B493960359</key>
+		<dict>
+			<key>xpos</key>
+			<real>1250</real>
+			<key>ypos</key>
+			<real>620</real>
+		</dict>
 		<key>1F19DDE6-9AE4-44FD-A28A-8479329F2800</key>
 		<dict>
 			<key>colorindex</key>
@@ -572,9 +1354,18 @@ More info: https://github.com/giovannicoppola/alfred-outlook</string>
 			<key>note</key>
 			<string>Open in Outlook</string>
 			<key>xpos</key>
-			<real>485</real>
+			<real>440</real>
 			<key>ypos</key>
-			<real>215</real>
+			<real>190</real>
+		</dict>
+		<key>2FFBF97B-DE4E-4772-A4AA-13FF90C8FA3F</key>
+		<dict>
+			<key>note</key>
+			<string>replace newline with one space</string>
+			<key>xpos</key>
+			<real>880</real>
+			<key>ypos</key>
+			<real>795</real>
 		</dict>
 		<key>364681AF-CD8C-4557-A3D1-A1797684D961</key>
 		<dict>
@@ -592,23 +1383,55 @@ More info: https://github.com/giovannicoppola/alfred-outlook</string>
 			<key>note</key>
 			<string>Show Thread</string>
 			<key>xpos</key>
-			<real>485</real>
+			<real>440</real>
 			<key>ypos</key>
-			<real>40</real>
+			<real>15</real>
+		</dict>
+		<key>42F63D5A-6119-4293-B847-C55068C567A1</key>
+		<dict>
+			<key>xpos</key>
+			<real>30</real>
+			<key>ypos</key>
+			<real>885</real>
 		</dict>
 		<key>4E264C77-CCC6-4653-95B1-B8E7665B0BC1</key>
 		<dict>
 			<key>xpos</key>
-			<real>255</real>
+			<real>210</real>
 			<key>ypos</key>
-			<real>290</real>
+			<real>265</real>
 		</dict>
-		<key>7752D29D-6600-481B-8093-4E8BDDE5FF8A</key>
+		<key>6C32DE5F-C7AA-4C22-9A06-67DEDA5B841F</key>
+		<dict>
+			<key>colorindex</key>
+			<integer>12</integer>
+			<key>xpos</key>
+			<real>435</real>
+			<key>ypos</key>
+			<real>765</real>
+		</dict>
+		<key>7283E189-7EC0-4FFD-980D-108AF6FDE54C</key>
 		<dict>
 			<key>xpos</key>
-			<real>950</real>
+			<real>1705</real>
 			<key>ypos</key>
-			<real>575</real>
+			<real>440</real>
+		</dict>
+		<key>80166171-CC12-4381-AB77-430104E8C23D</key>
+		<dict>
+			<key>xpos</key>
+			<real>1030</real>
+			<key>ypos</key>
+			<real>765</real>
+		</dict>
+		<key>8A0C263B-F494-4497-AAEA-FE4984B29AE1</key>
+		<dict>
+			<key>colorindex</key>
+			<integer>9</integer>
+			<key>xpos</key>
+			<real>1455</real>
+			<key>ypos</key>
+			<real>440</real>
 		</dict>
 		<key>8B752135-8C02-4D13-925A-417FA07D99F6</key>
 		<dict>
@@ -617,6 +1440,15 @@ More info: https://github.com/giovannicoppola/alfred-outlook</string>
 			<key>ypos</key>
 			<real>90</real>
 		</dict>
+		<key>8BB56C8E-82DB-40CA-928E-E95FBE463A55</key>
+		<dict>
+			<key>colorindex</key>
+			<integer>5</integer>
+			<key>xpos</key>
+			<real>30</real>
+			<key>ypos</key>
+			<real>765</real>
+		</dict>
 		<key>92B01EF1-A39E-4237-8C4B-21A76873092B</key>
 		<dict>
 			<key>xpos</key>
@@ -624,12 +1456,19 @@ More info: https://github.com/giovannicoppola/alfred-outlook</string>
 			<key>ypos</key>
 			<real>95</real>
 		</dict>
+		<key>9369046C-8CCD-4DE5-93C2-2D310522692F</key>
+		<dict>
+			<key>xpos</key>
+			<real>1240</real>
+			<key>ypos</key>
+			<real>765</real>
+		</dict>
 		<key>9D74AA26-60A9-44F2-BCE8-593F2F8D6662</key>
 		<dict>
 			<key>xpos</key>
-			<real>75</real>
+			<real>30</real>
 			<key>ypos</key>
-			<real>290</real>
+			<real>265</real>
 		</dict>
 		<key>A7249790-0513-4EB7-864D-4686E33CAFCF</key>
 		<dict>
@@ -638,9 +1477,9 @@ More info: https://github.com/giovannicoppola/alfred-outlook</string>
 			<key>note</key>
 			<string>Show Preview</string>
 			<key>xpos</key>
-			<real>485</real>
+			<real>440</real>
 			<key>ypos</key>
-			<real>365</real>
+			<real>340</real>
 		</dict>
 		<key>C2A224AF-0638-445D-B53D-FEF8882BC01B</key>
 		<dict>
@@ -658,16 +1497,71 @@ More info: https://github.com/giovannicoppola/alfred-outlook</string>
 			<key>colorindex</key>
 			<integer>4</integer>
 			<key>xpos</key>
-			<real>485</real>
+			<real>440</real>
 			<key>ypos</key>
-			<real>490</real>
+			<real>465</real>
+		</dict>
+		<key>DBF8FBC6-D827-4B5E-BF01-2CFC47E33B62</key>
+		<dict>
+			<key>xpos</key>
+			<real>1250</real>
+			<key>ypos</key>
+			<real>440</real>
+		</dict>
+		<key>DCD17DB9-6717-4317-A671-E9C200AFA1FD</key>
+		<dict>
+			<key>colorindex</key>
+			<integer>8</integer>
+			<key>xpos</key>
+			<real>1560</real>
+			<key>ypos</key>
+			<real>600</real>
 		</dict>
 		<key>E1FE7EDF-D81B-4223-B505-578FFCA49CEA</key>
 		<dict>
 			<key>xpos</key>
-			<real>940</real>
+			<real>1050</real>
 			<key>ypos</key>
-			<real>300</real>
+			<real>295</real>
+		</dict>
+		<key>E81C01F2-F92E-4611-93EE-16F5F93C612C</key>
+		<dict>
+			<key>xpos</key>
+			<real>435</real>
+			<key>ypos</key>
+			<real>630</real>
+		</dict>
+		<key>E954A57D-1235-483D-A513-16945C412559</key>
+		<dict>
+			<key>xpos</key>
+			<real>740</real>
+			<key>ypos</key>
+			<real>305</real>
+		</dict>
+		<key>EA2B620B-81F9-4C32-9478-11B5F2E972BD</key>
+		<dict>
+			<key>colorindex</key>
+			<integer>2</integer>
+			<key>note</key>
+			<string>create markdown link to stored email</string>
+			<key>xpos</key>
+			<real>645</real>
+			<key>ypos</key>
+			<real>765</real>
+		</dict>
+		<key>F99B21A1-20D8-43FE-B6DF-9C812AC998BC</key>
+		<dict>
+			<key>xpos</key>
+			<real>740</real>
+			<key>ypos</key>
+			<real>460</real>
+		</dict>
+		<key>FBA71C18-7D6E-4EDF-BA3C-9EC341C2914D</key>
+		<dict>
+			<key>xpos</key>
+			<real>220</real>
+			<key>ypos</key>
+			<real>765</real>
 		</dict>
 	</dict>
 	<key>userconfigurationconfig</key>
