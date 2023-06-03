@@ -13,7 +13,7 @@ W22Q2 – 153 ➡️ 211 – 22 ❇️ 343
 # tried to use exchange id instead of database ID, so that it will be possible to use it across computers, however the exchange ID changes if the message changes folder. 
 
 # Partly cloudy ⛅️  🌡️+69°F (feels +69°F, 41%) 🌬️↘13mph 🌔 Tue Apr 12 17:03:32 2022
-# tried tofetch the message ID from the sqlite database. To my knowledge is the only way to obtain a message ID which is shared across computers. The unique id I have been using is not. 
+# tried to fetch the message ID from the sqlite database. To my knowledge is the only way to obtain a message ID which is shared across computers. The unique id I have been using is not. 
 #### I copied the applescript wihtin alfred as opposed to run it from the bash because I don't have sudo permissions to make the applescript executable. 
 
 # Sunny ☀️   🌡️+87°F (feels +86°F, 35%) 🌬️←7mph 🌕&m Fri Jun  2 13:04:58 2023

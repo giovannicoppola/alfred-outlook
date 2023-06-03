@@ -3,7 +3,7 @@
 
 
 
-- *Note*: Many of the functions of this package will not work with the new, electron-based, 'New Outlook' interface, as Apple Script is not supported. Uncheck `New Outlook` in the `File` menu in Outlook to switch to the previous version.
+- *Note*: Many of the functions of this package will not work with the new, electron-based, 'New Outlook' interface, as AppleScript is not supported. Uncheck `New Outlook` in the `File` menu in Outlook to switch to the previous version.
 
 <a href="https://github.com/giovannicoppola/alfred-outlookSuite/releases/latest/">
 <img alt="Downloads"
@@ -36,7 +36,7 @@ src="https://img.shields.io/github/downloads/giovannicoppola/alfred-outlookSuite
 
 ### Needed
 - Alfred 5 with Powerpack license
-- *Note*: Many of the functions of this pacage Will not work with the 'New Outlook' interface, as Apple Script is not supported. 
+- *Note*: Many of the functions of this pacage Will not work with the 'New Outlook' interface, as AppleScript is not supported. 
 - *Note*: Your institution might have an automatic archival policy. In that case older mail messages that have been archived will not be returned in alfred-outlookSuite queries
 - Python3 (howto [here](https://www.freecodecamp.org/news/python-version-on-mac-update/))
 - Download `alfred-outlookSuite` [latest release](https://github.com/giovannicoppola/alfred-outlookSuite/releases/latest)
@@ -73,8 +73,20 @@ src="https://img.shields.io/github/downloads/giovannicoppola/alfred-outlookSuite
 - use a keyword (default: `em`) or a hotkey to launch, followed by text. Alfred will create a draft email with subject =  entered text, and save it  in the `Drafts` folder. 
 
 ## Email Saving 💾
+- use a keyword (default: `ols`) or a hotkey to launch, while Outloook is the frontomost application and an email is selected. 
+- Shoose the destination folder using Alfred's file filter
+- Save your email there. File will be renamed to include date and exclude special characters. A Markdown link to that email is copied to the clipboard. 
+
+
 
 ## Email Snoozing 💤
+- Make sure you have, or create, a `Snoozed` folder in your main Outlook account. 
+- use a keyword (default: `olz`) or a hotkey to launch, while Outloook is the frontomost application and an email is selected. 
+- enter the number of days you want to snooze your email. Alfred will show the corresponding date, and the number of emails already snoozed for that date. 
+- Selecting the result will 1) Snooze the email until the desired date and 2) move that email to the `Snoozed` folder. 
+- the `checkSnoozed` keyword will show in large font (and copy to clipboard) an overview of all the snoozed email (one line per day) 
+- Unsnoozing will happen once a day, as soon as `alfred-outlookSuite` is launched. You can force the unsnooze script using a keyword (default: `olu` or a hotkey). 
+
 
 ## Folder database refresh 🔄
 - will occur according to the rate in days set in `alfred-outlookSuite` preferences
@@ -92,7 +104,9 @@ src="https://img.shields.io/github/downloads/giovannicoppola/alfred-outlookSuite
 
 - Thanks to the [Alfred forum](https://www.alfredforum.com) community!
 - Thanks to [@xeric](https://github.com/xeric) for the first version and the inspiration to build upon it. 
-- https://www.flaticon.com/free-icon/abacus_1046277
+- Abacus icon: https://www.flaticon.com/free-icon/abacus_1046277
+- Snooze icon: https://www.flaticon.com/free-icon/snooze_3602333
+- https://www.flaticon.com/free-icon/chapter_6348276
 	
 <h1 id="changelog">Changelog 🧰</h1>
 

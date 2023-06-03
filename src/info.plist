@@ -193,27 +193,6 @@
 		<dict>
 			<key>config</key>
 			<dict>
-				<key>argumenttype</key>
-				<integer>2</integer>
-				<key>keyword</key>
-				<string>checkSnoozed</string>
-				<key>subtext</key>
-				<string></string>
-				<key>text</key>
-				<string>Check Snoozed Emails</string>
-				<key>withspace</key>
-				<false/>
-			</dict>
-			<key>type</key>
-			<string>alfred.workflow.input.keyword</string>
-			<key>uid</key>
-			<string>C2A224AF-0638-445D-B53D-FEF8882BC01B</string>
-			<key>version</key>
-			<integer>1</integer>
-		</dict>
-		<dict>
-			<key>config</key>
-			<dict>
 				<key>concurrently</key>
 				<false/>
 				<key>escaping</key>
@@ -233,6 +212,27 @@
 			<string>8B752135-8C02-4D13-925A-417FA07D99F6</string>
 			<key>version</key>
 			<integer>2</integer>
+		</dict>
+		<dict>
+			<key>config</key>
+			<dict>
+				<key>argumenttype</key>
+				<integer>2</integer>
+				<key>keyword</key>
+				<string>checkSnoozed</string>
+				<key>subtext</key>
+				<string></string>
+				<key>text</key>
+				<string>Check Snoozed Emails</string>
+				<key>withspace</key>
+				<false/>
+			</dict>
+			<key>type</key>
+			<string>alfred.workflow.input.keyword</string>
+			<key>uid</key>
+			<string>C2A224AF-0638-445D-B53D-FEF8882BC01B</string>
+			<key>version</key>
+			<integer>1</integer>
 		</dict>
 		<dict>
 			<key>config</key>
@@ -487,6 +487,56 @@
 			<key>version</key>
 			<integer>3</integer>
 		</dict>
+		<dict>
+			<key>config</key>
+			<dict>
+				<key>alfredfiltersresults</key>
+				<false/>
+				<key>alfredfiltersresultsmatchmode</key>
+				<integer>0</integer>
+				<key>argumenttreatemptyqueryasnil</key>
+				<true/>
+				<key>argumenttrimmode</key>
+				<integer>0</integer>
+				<key>argumenttype</key>
+				<integer>2</integer>
+				<key>escaping</key>
+				<integer>102</integer>
+				<key>keyword</key>
+				<string>{var:refreshkeyword}</string>
+				<key>queuedelaycustom</key>
+				<integer>3</integer>
+				<key>queuedelayimmediatelyinitially</key>
+				<true/>
+				<key>queuedelaymode</key>
+				<integer>0</integer>
+				<key>queuemode</key>
+				<integer>1</integer>
+				<key>runningsubtext</key>
+				<string>please wait while I refresh... ⏳</string>
+				<key>script</key>
+				<string>python3 alfredo_ops.py "rebuild" "$1"
+</string>
+				<key>scriptargtype</key>
+				<integer>1</integer>
+				<key>scriptfile</key>
+				<string></string>
+				<key>subtext</key>
+				<string></string>
+				<key>title</key>
+				<string>refresh Outlook folder database 👀</string>
+				<key>type</key>
+				<integer>0</integer>
+				<key>withspace</key>
+				<false/>
+			</dict>
+			<key>type</key>
+			<string>alfred.workflow.input.scriptfilter</string>
+			<key>uid</key>
+			<string>7752D29D-6600-481B-8093-4E8BDDE5FF8A</string>
+			<key>version</key>
+			<integer>3</integer>
+		</dict>
 	</array>
 	<key>readme</key>
 	<string># alfred-outlook
@@ -553,12 +603,19 @@ More info: https://github.com/giovannicoppola/alfred-outlook</string>
 			<key>ypos</key>
 			<real>290</real>
 		</dict>
+		<key>7752D29D-6600-481B-8093-4E8BDDE5FF8A</key>
+		<dict>
+			<key>xpos</key>
+			<real>950</real>
+			<key>ypos</key>
+			<real>575</real>
+		</dict>
 		<key>8B752135-8C02-4D13-925A-417FA07D99F6</key>
 		<dict>
 			<key>xpos</key>
 			<real>1135</real>
 			<key>ypos</key>
-			<real>95</real>
+			<real>90</real>
 		</dict>
 		<key>92B01EF1-A39E-4237-8C4B-21A76873092B</key>
 		<dict>

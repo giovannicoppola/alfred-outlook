@@ -5,10 +5,10 @@ W22Q2 – 153 ➡️ 211 – 22 ❇️ 343
 """
 
 """
-# Script updated on Mon Apr 11 10:17:50 2022 Tarrytown – Sunny ☀️   🌡️+48°F (feels +45°F, 39%) 🌬️↙9mph 🌔 
+# Script updated on Mon Apr 11 10:17:50 2022  – Sunny ☀️   🌡️+48°F (feels +45°F, 39%) 🌬️↙9mph 🌔 
 # to use exchange id instead of database ID, so that it will be possible to use it across computers. 
-# on Chappaqua – Partly cloudy ⛅️  🌡️+69°F (feels +69°F, 41%) 🌬️↘13mph 🌔 Tue Apr 12 17:03:32 2022
-# tried tofetch the message ID from the sqlite database. To my knowledge is the only way to obtain a message ID which is shared across computers. The unique id I have been using is not. 
+# Partly cloudy ⛅️  🌡️+69°F (feels +69°F, 41%) 🌬️↘13mph 🌔 Tue Apr 12 17:03:32 2022
+# tried to fetch the message ID from the sqlite database. To my knowledge is the only way to obtain a message ID which is shared across computers. The unique id I have been using is not. 
 # it seems there is no way to get this via applescript
 
 # also, removed the categories (labels) part which I don't use for now. These are in v01 of this script, in the same folder. 

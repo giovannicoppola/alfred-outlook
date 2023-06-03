@@ -1,5 +1,3 @@
-# encoding:utf-8
-
 from consts import *
 import sys
 from datetime import datetime, date, timedelta
