@@ -10,7 +10,7 @@
 src="https://img.shields.io/github/downloads/giovannicoppola/alfred-outlookSuite/total?color=purple&label=Downloads"><br/>
 </a>
 
-![](images/alfred-OutlookSuite.png)
+![](images/alfred-outlookSuite.png)
 
 <!-- MarkdownTOC autolink="true" bracket="round" depth="3" autoanchor="true" -->
 
