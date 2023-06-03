@@ -3,7 +3,7 @@
 
 
 
-- *Note*: Many of the functions of this package will not work with thenew, electron-based, 'New Outlook' interface, as Apple Script is not supported. 
+- *Note*: Many of the functions of this package will not work with the new, electron-based, 'New Outlook' interface, as Apple Script is not supported. Uncheck `New Outlook` in the `File` menu in Outlook to switch to the previous version.
 
 <a href="https://github.com/giovannicoppola/alfred-outlookSuite/releases/latest/">
 <img alt="Downloads"
@@ -85,7 +85,7 @@ src="https://img.shields.io/github/downloads/giovannicoppola/alfred-outlookSuite
 <h1 id="known-issues">Limitations & known issues ⚠️</h1>
 
 - None for now, but I have not done extensive testing, let me know if you see anything!
-- Again, a lot of this will not work with the electron interface (`New Outlook`). Uncheck `New Outlook` in the `File`
+- Again, a lot of this will not work with the electron interface (`New Outlook`). Uncheck `New Outlook` in the `File` menu in Outlook to switch to the previous version.
 
 
 
