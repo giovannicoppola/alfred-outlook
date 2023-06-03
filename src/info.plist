@@ -318,25 +318,6 @@
 		<dict>
 			<key>config</key>
 			<dict>
-				<key>autopaste</key>
-				<false/>
-				<key>clipboardtext</key>
-				<string>{query}</string>
-				<key>ignoredynamicplaceholders</key>
-				<false/>
-				<key>transient</key>
-				<false/>
-			</dict>
-			<key>type</key>
-			<string>alfred.workflow.output.clipboard</string>
-			<key>uid</key>
-			<string>364681AF-CD8C-4557-A3D1-A1797684D961</string>
-			<key>version</key>
-			<integer>3</integer>
-		</dict>
-		<dict>
-			<key>config</key>
-			<dict>
 				<key>externaltriggerid</key>
 				<string>MainQuery</string>
 				<key>passinputasargument</key>
@@ -352,6 +333,25 @@
 			<string>59CEE536-6DC2-433C-967F-2DAA2119D3D1</string>
 			<key>version</key>
 			<integer>1</integer>
+		</dict>
+		<dict>
+			<key>config</key>
+			<dict>
+				<key>autopaste</key>
+				<false/>
+				<key>clipboardtext</key>
+				<string>{query}</string>
+				<key>ignoredynamicplaceholders</key>
+				<false/>
+				<key>transient</key>
+				<false/>
+			</dict>
+			<key>type</key>
+			<string>alfred.workflow.output.clipboard</string>
+			<key>uid</key>
+			<string>364681AF-CD8C-4557-A3D1-A1797684D961</string>
+			<key>version</key>
+			<integer>3</integer>
 		</dict>
 		<dict>
 			<key>config</key>
@@ -429,27 +429,6 @@
 		<dict>
 			<key>config</key>
 			<dict>
-				<key>argumenttype</key>
-				<integer>2</integer>
-				<key>keyword</key>
-				<string>checkSnoozed</string>
-				<key>subtext</key>
-				<string></string>
-				<key>text</key>
-				<string>Check Snoozed Emails</string>
-				<key>withspace</key>
-				<false/>
-			</dict>
-			<key>type</key>
-			<string>alfred.workflow.input.keyword</string>
-			<key>uid</key>
-			<string>C2A224AF-0638-445D-B53D-FEF8882BC01B</string>
-			<key>version</key>
-			<integer>1</integer>
-		</dict>
-		<dict>
-			<key>config</key>
-			<dict>
 				<key>action</key>
 				<integer>0</integer>
 				<key>argument</key>
@@ -477,6 +456,27 @@
 			<string>92B01EF1-A39E-4237-8C4B-21A76873092B</string>
 			<key>version</key>
 			<integer>2</integer>
+		</dict>
+		<dict>
+			<key>config</key>
+			<dict>
+				<key>argumenttype</key>
+				<integer>2</integer>
+				<key>keyword</key>
+				<string>checkSnoozed</string>
+				<key>subtext</key>
+				<string></string>
+				<key>text</key>
+				<string>Check Snoozed Emails</string>
+				<key>withspace</key>
+				<false/>
+			</dict>
+			<key>type</key>
+			<string>alfred.workflow.input.keyword</string>
+			<key>uid</key>
+			<string>C2A224AF-0638-445D-B53D-FEF8882BC01B</string>
+			<key>version</key>
+			<integer>1</integer>
 		</dict>
 		<dict>
 			<key>config</key>
@@ -899,6 +899,41 @@ EOB
 		<dict>
 			<key>config</key>
 			<dict>
+				<key>action</key>
+				<integer>0</integer>
+				<key>argument</key>
+				<integer>0</integer>
+				<key>focusedappvariable</key>
+				<false/>
+				<key>focusedappvariablename</key>
+				<string></string>
+				<key>hotkey</key>
+				<integer>1</integer>
+				<key>hotmod</key>
+				<integer>1835008</integer>
+				<key>hotstring</key>
+				<string>S</string>
+				<key>leftcursor</key>
+				<false/>
+				<key>modsmode</key>
+				<integer>0</integer>
+				<key>relatedApps</key>
+				<array>
+					<string>com.microsoft.Outlook</string>
+				</array>
+				<key>relatedAppsMode</key>
+				<integer>1</integer>
+			</dict>
+			<key>type</key>
+			<string>alfred.workflow.trigger.hotkey</string>
+			<key>uid</key>
+			<string>1E736616-8136-4D8B-A8BF-B9B493960359</string>
+			<key>version</key>
+			<integer>2</integer>
+		</dict>
+		<dict>
+			<key>config</key>
+			<dict>
 				<key>lastpathcomponent</key>
 				<false/>
 				<key>onlyshowifquerypopulated</key>
@@ -933,7 +968,7 @@ EOB
 				<key>escaping</key>
 				<integer>102</integer>
 				<key>keyword</key>
-				<string>olu</string>
+				<string>{var:unsnoozekeyword}</string>
 				<key>queuedelaycustom</key>
 				<integer>3</integer>
 				<key>queuedelayimmediatelyinitially</key>
@@ -965,41 +1000,6 @@ EOB
 			<string>DCD17DB9-6717-4317-A671-E9C200AFA1FD</string>
 			<key>version</key>
 			<integer>3</integer>
-		</dict>
-		<dict>
-			<key>config</key>
-			<dict>
-				<key>action</key>
-				<integer>0</integer>
-				<key>argument</key>
-				<integer>0</integer>
-				<key>focusedappvariable</key>
-				<false/>
-				<key>focusedappvariablename</key>
-				<string></string>
-				<key>hotkey</key>
-				<integer>1</integer>
-				<key>hotmod</key>
-				<integer>1835008</integer>
-				<key>hotstring</key>
-				<string>S</string>
-				<key>leftcursor</key>
-				<false/>
-				<key>modsmode</key>
-				<integer>0</integer>
-				<key>relatedApps</key>
-				<array>
-					<string>com.microsoft.Outlook</string>
-				</array>
-				<key>relatedAppsMode</key>
-				<integer>1</integer>
-			</dict>
-			<key>type</key>
-			<string>alfred.workflow.trigger.hotkey</string>
-			<key>uid</key>
-			<string>1E736616-8136-4D8B-A8BF-B9B493960359</string>
-			<key>version</key>
-			<integer>2</integer>
 		</dict>
 		<dict>
 			<key>config</key>
@@ -1351,21 +1351,48 @@ function run(argv) {
 		</dict>
 	</array>
 	<key>readme</key>
-	<string># alfred-outlook
-- This is an Alfred Workflow for searching Microsoft Outlook Version 16 and later.
-- Original from [@xeric](https://github.com/xeric). 
-- This is a partial port to Python 3 and Alfred 5 to get the basic functionalities. I will work more on it if there is interest. 
-- *Note*: Will not work with the 'New Outlook' interface, as Apple Script is not supported. 
+	<string># alfred-outlookSuite
+A suite of tools to interact with Microsoft Outlook via Alfred
 
-# basic usage
-- This workflow used for searching Outlook Mail on Mac, support Mac Outlook Version 16.
-- You can search by keyword on Subject, Sender and Content of Mail.
-- By default, it search all of three above, and for seaching single item, you can use:
-	- olk title:[keyword]
-	- olk from:[keyword]
-- Mail content search is based on preview content, not full text of mail, so will not provide a single search item for it due to valueless in accurate search.
+## Motivation ✅
 
-More info: https://github.com/giovannicoppola/alfred-outlook</string>
+- Quickly list, search, and filter your Microsoft Outlook emails 
+- Perform basic tasks like: email snoozing, quick email drafting, email saving. 
+
+## Basic Usage 📖
+
+### Search your email 🔍
+
+- standard search: one or more search strings will search both the subject of an email, and its preview (first 250 characters). 
+- gmail-like search strings, listed below, supported (remember to set the MYSELF variable in the Workflow Configuration). 
+	- `from:` (including `from:me`). Replace space with underscore if you want to specify the whole name (e.g. `from:john_appleseed`)
+	- `to:` (including `to:me`)
+	- `cc:` (including `cc:me`)
+	- `subject:`,  `has:attach`, `is:unread`, `is:read`, `is:important`, `is:unimportant`  
+	- `folder:` (note: replace spaces with underscores if the folder name contains spaces, e.g. `folder:sent_items`)
+	- `-text` to exclude text 
+	- `--a` to sort by increasing date (oldest first)
+	- `since:n` will return email received in the last `n` days. `w` and `m` are supported for months and weeks, respectively (e.g. `since:2w`).
+- Once an email of interest has been identified, the following actions are possible:
+	- ↩️Enter will open the email in Outlook
+	- ^-↩️ (control-enter) will show all the messages in the thread
+	- ⇧-↩️ (shift-enter) will show in large font (and copy to clipboard) the following fields from the message: From, To, Subject, and Preview from the selected email. 
+ 
+### Draft a new email ⭐
+- use a keyword (default: `em`) or a hotkey to launch, followed by text. Alfred will create a draft email with subject =  entered text, and save it  in the `Drafts` folder. 
+
+### Email Saving 💾
+- use a keyword (default: `ols`) or a hotkey to launch, while Outlook is the frontmost application and an email is selected. 
+- Choose the destination folder using Alfred's file filter
+- Save your email there. File will be renamed to include date and exclude special characters. A Markdown link to that email is copied to the clipboard. 
+
+### Email Snoozing 💤
+- Make sure you have, or create, a `Snoozed` folder in your main Outlook account. 
+- use a keyword (default: `olz`) or a hotkey to launch, while Outloook is the frontmost application and an email is selected. 
+- enter the number of days you want to snooze your email. Alfred will show the corresponding date, and the number of emails already snoozed for that date. 
+- Selecting the result will 1) Snooze the email until the desired date and 2) move that email to the `Snoozed` folder. 
+- the `checkSnoozed` keyword will show in large font (and copy to clipboard) an overview of all the snoozed email (one line per day) 
+- Unsnoozing will happen once a day, as soon as `alfred-outlookSuite` is launched. You can force the unsnooze script using a keyword (default: `olu`) or a hotkey).</string>
 	<key>uidata</key>
 	<dict>
 		<key>01F5A176-C99F-4381-BE45-A80B0CB5813E</key>
@@ -1668,6 +1695,27 @@ More info: https://github.com/giovannicoppola/alfred-outlook</string>
 			<key>config</key>
 			<dict>
 				<key>default</key>
+				<string>olu</string>
+				<key>placeholder</key>
+				<string></string>
+				<key>required</key>
+				<true/>
+				<key>trim</key>
+				<true/>
+			</dict>
+			<key>description</key>
+			<string>Checks that no emails are due for unsnoozing today</string>
+			<key>label</key>
+			<string>Force unsnooze script</string>
+			<key>type</key>
+			<string>textfield</string>
+			<key>variable</key>
+			<string>unsnoozekeyword</string>
+		</dict>
+		<dict>
+			<key>config</key>
+			<dict>
+				<key>default</key>
 				<string></string>
 				<key>placeholder</key>
 				<string></string>
@@ -1852,6 +1900,8 @@ More info: https://github.com/giovannicoppola/alfred-outlook</string>
 			<string>BEEGOAL</string>
 		</dict>
 	</array>
+	<key>variablesdontexport</key>
+	<array/>
 	<key>version</key>
 	<string>0.9</string>
 	<key>webaddress</key>

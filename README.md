@@ -48,11 +48,13 @@ src="https://img.shields.io/github/downloads/giovannicoppola/alfred-outlookSuite
 - *Optional*:	
 	- set the keyword (or hotkey) to launch `alfred-outlookSuite` (default: `olk`) 
 	- set the keyword (or hotkey) to force-refresh the folder list (default: `outlook::refresh`)
+	- set the keyword (or hotkey) to force-the unsnoozing script (default: `olu`)
 	- set your name, so that it can be used in `from:me`, `to:me`, and `cc:me` searches
 	- *Text to hide in subject* Enter here comma-separated text strings that you don't want to see in the 'Subject' result (e.g. [External], <External> etc.), therefore saving important real estate in Alfred's output.
 	- *Folders to exclude* List here, comma-separated, the folders you would like to exclude from the search. Default: `Deleted Items`. 
 	- *Folders list refresh rate*	- The folder list is generated periodically (default: 30 days) to improve performance, as folders change less often. Enter your preferred number of days here.
 	- *Snooze file location* - Leave empty if you use this Workflow on one computer (it will be saved in the Workflow's data folder). Enter a shared folder location here in case you want to share the file snoozing information across computers using the same Outlook account.
+	- *Beeminder info* if you use [Beeminder](https://www.beeminder.com/) to track your inbox, enter your account information here and Alfred will post the number of messages in inbox every time an unsnooze script is run
 
 
 <h1 id="usage">Basic Usage 📖</h1>
@@ -60,33 +62,37 @@ src="https://img.shields.io/github/downloads/giovannicoppola/alfred-outlookSuite
 ## Search your email 🔍
 
 - standard search: one or more search strings will search both the subject of an email, and its preview (first 250 characters). 
-- gmail-like search strings, listed below, supported (remember to set the MYSELF variable in the Workflow Configuration. 
+- gmail-like search strings, listed below, supported (remember to set the MYSELF variable in the Workflow Configuration). 
 	- `from:` (including `from:me`). Replace space with underscore if you want to specify the whole name (e.g. `from:john_appleseed`)
 	- `to:` (including `to:me`)
 	- `cc:` (including `cc:me`)
 	- `subject:`,  `has:attach`, `is:unread`, `is:read`, `is:important`, `is:unimportant`  
-	- `folder:` (note: replace spaces with underscores if the folder name contains spaces, e.g. `folder:sent_items`
+	- `folder:` (note: replace spaces with underscores if the folder name contains spaces, e.g. `folder:sent_items`)
 	- `-text` to exclude text 
 	- `--a` to sort by increasing date (oldest first)
-	- `since:n` will return email received in the last `n` days. `w` and `m` are supported for months and weeks, respectively (e.g. `since:2w`)
-
+	- `since:n` will return email received in the last `n` days. `w` and `m` are supported for months and weeks, respectively (e.g. `since:2w`).
+- Once an email of interest has been identified, the following actions are possible:
+	- ↩️Enter will open the email in Outlook
+	- ^-↩️ (control-enter) will show all the messages in the thread
+	- ⇧-↩️ (shift-enter) will show in large font (and copy to clipboard)  the fields: From, To, Subject, and Preview from the selected email. 
+ 
 ## Draft a new email ⭐
 - use a keyword (default: `em`) or a hotkey to launch, followed by text. Alfred will create a draft email with subject =  entered text, and save it  in the `Drafts` folder. 
 
 ## Email Saving 💾
-- use a keyword (default: `ols`) or a hotkey to launch, while Outloook is the frontomost application and an email is selected. 
-- Shoose the destination folder using Alfred's file filter
+- use a keyword (default: `ols`) or a hotkey to launch, while Outloook is the frontmost application and an email is selected. 
+- Choose the destination folder using Alfred's file filter
 - Save your email there. File will be renamed to include date and exclude special characters. A Markdown link to that email is copied to the clipboard. 
 
 
 
 ## Email Snoozing 💤
 - Make sure you have, or create, a `Snoozed` folder in your main Outlook account. 
-- use a keyword (default: `olz`) or a hotkey to launch, while Outloook is the frontomost application and an email is selected. 
+- use a keyword (default: `olz`) or a hotkey to launch, while Outloook is the frontmost application and an email is selected. 
 - enter the number of days you want to snooze your email. Alfred will show the corresponding date, and the number of emails already snoozed for that date. 
 - Selecting the result will 1) Snooze the email until the desired date and 2) move that email to the `Snoozed` folder. 
 - the `checkSnoozed` keyword will show in large font (and copy to clipboard) an overview of all the snoozed email (one line per day) 
-- Unsnoozing will happen once a day, as soon as `alfred-outlookSuite` is launched. You can force the unsnooze script using a keyword (default: `olu` or a hotkey). 
+- Unsnoozing will happen once a day, as soon as `alfred-outlookSuite` is launched. You can force the unsnooze script using a keyword (default: `olu`) or a hotkey. 
 
 
 ## Folder database refresh 🔄
