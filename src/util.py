@@ -106,6 +106,33 @@ def getAccountData():
         
     log (myAccounts)
 
+
+
+def getContactList():
+    myContacts = []
+    db = sqlite3.connect(OUTLOOK_DB_FILE)
+    
+    cur = db.cursor()
+    rs = cur.execute(f"SELECT Message_RecipientList from Mail")
+    if rs:
+        for myRs in rs:
+            #log (myRs)
+            try:
+                currentContacts = myRs[0].split(";")
+                for thisContact in currentContacts:
+                    thisContact = thisContact.strip()
+                    if thisContact in myContacts:
+                        continue
+                    else:
+                        myContacts.append(thisContact)
+            except:
+                continue
+    myContacts.sort()
+    with open(OUTLOOK_CONTACTS_FILE, "w") as f:
+            json.dump(myContacts, f, indent=4)              
+        
+    #log (myContacts)
+
 def fetchRecordID (myID):
     db = sqlite3.connect(OUTLOOK_DB_FILE)
     cur = db.cursor()

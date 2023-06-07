@@ -69,6 +69,7 @@ src="https://img.shields.io/github/downloads/giovannicoppola/alfred-outlookSuite
 	- `subject:`,  `has:attach`, `is:unread`, `is:read`, `is:important`, `is:unimportant`  
 	- `folder:` (note: replace spaces with underscores if the folder name contains spaces, e.g. `folder:sent_items`)
 	- `-text` to exclude text 
+	- `account:` to filter by Exchange account
 	- `--a` to sort by increasing date (oldest first)
 	- `since:n` will return email received in the last `n` days. `w` and `m` are supported for months and weeks, respectively (e.g. `since:2w`).
 - Once an email of interest has been identified, the following actions are possible:
@@ -118,6 +119,7 @@ src="https://img.shields.io/github/downloads/giovannicoppola/alfred-outlookSuite
 	
 <h1 id="changelog">Changelog 🧰</h1>
 
+- 2023-06-07 version 0.9.1: support for multiple Exchange accounts
 - 2023-06-03 version 0.9: complete rewrite, renamed `OutlookSuite`
 - 2022-12-05 version 0.3 (Alfred 5)
 - 2022-06-27 version 0.2 (Python 3)

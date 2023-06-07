@@ -42,7 +42,11 @@ def fetchAccounts ():
         d = json.load(f)
     return d
 
-
+def fetchContacts ():
+    
+    with open(OUTLOOK_CONTACTS_FILE, "r") as f:
+        d = json.load(f)
+    return d
 
 
 def cleanSubject(mySubject):
@@ -53,8 +57,45 @@ def cleanSubject(mySubject):
             mySubject = mySubject.replace (substring, "")
     return mySubject
 
+def showContacts(MY_INPUT, MY_CONTACTS,myQuery):
+        MYOUTPUT = {"items": []}
+        mySubset = [i for i in MY_CONTACTS if MY_INPUT.casefold() in i.casefold()]
+        
+        # adding a complete tag if the user selects it from the list
+        if mySubset:
+            for thisContact in mySubset:
+                
+                MYOUTPUT["items"].append({
+                "title": f"{thisContact}",
+                "subtitle": MY_INPUT,
+                "arg": "",
+                "variables" : {
+                "selectedContact": thisContact,
+                "myIter": True,
+                "myQuery": myQuery,
+                "mySource": 'contacts'
+                    },
+                "icon": {
+                        "path": f"icons/contact.png"
+                    }
+                })
+        else:
+            MYOUTPUT["items"].append({
+            "title": "no contacts matching",
+            "subtitle": "try another query?",
+            "variables" : {
+                    
+                    "myArg": MY_INPUT+" "
+                    },
+            "arg": "",
+            "icon": {
+                    "path": f"icons/Warning.png"
+                }
+            })
+        print (json.dumps(MYOUTPUT))
+        exit()
 
-def compileSQL(myQuery,myFolderKeys,myAccountKeys):
+def compileSQL(myQuery,myFolderKeys,myAccountKeys,myContacts):
     """
     a function to parse the user's input and generate an SQL query that can be used to query the database
     """
@@ -66,13 +107,14 @@ def compileSQL(myQuery,myFolderKeys,myAccountKeys):
     
     for myElement in myElements:
         if myElement.startswith("from:"): #user is searching by sender
-            
+            #showContacts (myElement.split(":")[1],myContacts,myQuery)
             if myElement == 'from:me': #use the user-defined name string
                 myString = MYSELF
             
             else: 
                 myString = myElement.split(":")[1].strip()
                 myString = myString.replace("_"," ")
+                #myString = os.getenv('SelectedContact')
             conditions.append (f"Message_SenderList LIKE '%{myString}%'")
             
         elif myElement.startswith("to:"): #user is searching by sender
@@ -209,6 +251,11 @@ def main():
     except:
         myAccountKeys = fetchAccounts ()
 
+    try: 
+        myContacts
+    except:
+        myContacts = fetchContacts ()
+
     # Check if the file has been updated today
     if checkJSON(OUTLOOK_SNOOZER_FILE):
         log("The JSON file has been updated today.")
@@ -221,8 +268,10 @@ def main():
 
     if MYSOURCE == "thread":
         mySQL = f"SELECT * FROM Mail WHERE Message_ThreadTopic = '{myQuery}' ORDER BY Message_TimeSent ASC"
+    # elif MYSOURCE == "contacts":
+    #     myQuery  = os.getenv('myQuery')
     elif myQuery:
-        mySQL = compileSQL (myQuery,myFolderKeys, myAccountKeys)
+        mySQL = compileSQL (myQuery,myFolderKeys, myAccountKeys,myContacts)
     else:
         mySQL = f"SELECT * FROM Mail ORDER BY Message_TimeSent DESC"
     
