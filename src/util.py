@@ -87,7 +87,25 @@ def getFolderData():
             json.dump(myFolders, f, indent=4)              
         
     log (myFolders)
+
+
+def getAccountData():
+    myAccounts = {}
+    db = sqlite3.connect(OUTLOOK_DB_FILE)
     
+    cur = db.cursor()
+    cur.execute(f"SELECT Record_AccountUID from Mail")
+    accountIDs = set([row[0] for row in cur.fetchall()])
+    for myAccount in accountIDs:
+        #log (myAccount)
+        rs = cur.execute(f"SELECT Account_Name from AccountsExchange WHERE Account_MailAccountUID = {myAccount}").fetchone()
+        if rs:
+            myAccounts[myAccount] = rs[0]
+    with open(OUTLOOK_ACCOUNT_KEY_FILE, "w") as f:
+            json.dump(myAccounts, f, indent=4)              
+        
+    log (myAccounts)
+
 def fetchRecordID (myID):
     db = sqlite3.connect(OUTLOOK_DB_FILE)
     cur = db.cursor()

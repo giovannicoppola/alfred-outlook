@@ -3,11 +3,12 @@
 # Script to build/update the folder database in outlook
 # Created on Saturday, June 3, 2023
 
-from util import log, getFolderData
+from util import log, getFolderData, getAccountData
 import json
 
 log ("rebuilding database ⏳...")
 getFolderData()
+getAccountData()
 
 log ("done 👍")
 

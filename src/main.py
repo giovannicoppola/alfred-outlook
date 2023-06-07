@@ -36,7 +36,13 @@ def fetchFolder ():
     return d
 
 
+def fetchAccounts ():
     
+    with open(OUTLOOK_ACCOUNT_KEY_FILE, "r") as f:
+        d = json.load(f)
+    return d
+
+
 
 
 def cleanSubject(mySubject):
@@ -48,7 +54,7 @@ def cleanSubject(mySubject):
     return mySubject
 
 
-def compileSQL(myQuery,myFolderKeys):
+def compileSQL(myQuery,myFolderKeys,myAccountKeys):
     """
     a function to parse the user's input and generate an SQL query that can be used to query the database
     """
@@ -142,6 +148,16 @@ def compileSQL(myQuery,myFolderKeys):
             
             conditions.append (f"Record_FolderID = {myFolderID}")
         
+        elif myElement.startswith("account:"): #user is searching by exchange account
+           
+           myString = myElement.split(":")[1].strip()
+           myString = myString.replace("_"," ")
+           myAccountID = next((key for key, value in myAccountKeys.items() if myString.casefold() in value.casefold()), None)
+           
+           if myAccountID:
+            
+            conditions.append (f"Record_AccountUID = {myAccountID}")
+        
         elif myElement == ("--a"): #user wants to sort by decreasing date
            DEFAULT_SORT = 'ASC'
         
@@ -188,6 +204,11 @@ def main():
     except:
         myFolderKeys = fetchFolder ()
 
+    try: 
+        myAccountKeys
+    except:
+        myAccountKeys = fetchAccounts ()
+
     # Check if the file has been updated today
     if checkJSON(OUTLOOK_SNOOZER_FILE):
         log("The JSON file has been updated today.")
@@ -201,7 +222,7 @@ def main():
     if MYSOURCE == "thread":
         mySQL = f"SELECT * FROM Mail WHERE Message_ThreadTopic = '{myQuery}' ORDER BY Message_TimeSent ASC"
     elif myQuery:
-        mySQL = compileSQL (myQuery,myFolderKeys)
+        mySQL = compileSQL (myQuery,myFolderKeys, myAccountKeys)
     else:
         mySQL = f"SELECT * FROM Mail ORDER BY Message_TimeSent DESC"
     

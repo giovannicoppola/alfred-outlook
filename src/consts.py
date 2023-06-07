@@ -22,11 +22,12 @@ MY_HOME = os.getenv('HOME')
 
 OUTLOOK_MSG_FOLDER = f'{MY_HOME}/Library/Group Containers/UBF8T346G9.Office/Outlook/Outlook 15 Profiles/Main Profile/Data/'
 
-#OUTLOOK_DB_FILE = f'{MY_HOME}/Library/Group Containers/UBF8T346G9.Office/Outlook/Outlook 15 Profiles/Main Profile/Data/Outlook.sqlite'
-OUTLOOK_DB_FILE = "/Users/giovanni/Desktop/Main Profile/Data/Outlook.sqlite"
+OUTLOOK_DB_FILE = f'{MY_HOME}/Library/Group Containers/UBF8T346G9.Office/Outlook/Outlook 15 Profiles/Main Profile/Data/Outlook.sqlite'
+#OUTLOOK_DB_FILE = "/Users/giovanni/Desktop/Main Profile/Data/Outlook.sqlite"
 
 WF_DATA_FOLDER = os.getenv('alfred_workflow_data')
 OUTLOOK_FOLDER_KEY_FILE  = f"{WF_DATA_FOLDER}/keyfolder.json"
+OUTLOOK_ACCOUNT_KEY_FILE  = f"{WF_DATA_FOLDER}/keyaccount.json"
 
 if SNOOZE_FOLDER:
     OUTLOOK_SNOOZER_FILE  = f"{SNOOZE_FOLDER}/snoozer.json"
