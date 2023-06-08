@@ -46,7 +46,7 @@ def fetchContacts ():
     
     if CONTACT_AUTOCOMPLETE == "Database":
         OUTLOOK_CONTACTS_FILE = OUTLOOK_CONTACTS_LIST_FILE
-    elif CONTACT_AUTOCOMPLETE == "AddressBook":
+    elif CONTACT_AUTOCOMPLETE in ["AddressBook","None"]:
         OUTLOOK_CONTACTS_FILE = OUTLOOK_CONTACTS_BOOK_FILE
 
     with open(OUTLOOK_CONTACTS_FILE, "r") as f:
@@ -145,7 +145,7 @@ def showSavedQueries(MY_INPUT, SAVED_QUERIES,myQuery):
         exit()
 
 
-def compileSQL(myQuery,myFolderKeys,myAccountKeys,myContacts):
+def compileSQL(myQuery,myFolderKeys,myAccountKeys, myContacts):
     """
     a function to parse the user's input and generate an SQL query that can be used to query the database
     """
@@ -159,7 +159,7 @@ def compileSQL(myQuery,myFolderKeys,myAccountKeys,myContacts):
     
     
     for myElement in myElements:
-        log (f"myIter = {MYITER}")
+        #log (f"myIter = {MYITER}")
         if myElement.startswith("from:"): #user is searching by sender
             if myElement == 'from:me': #use the user-defined name string
                     myString = MYSELF
@@ -435,8 +435,8 @@ def main():
 
 
     myQuery = sys.argv[1]
-    log (f"this is the user input: {myQuery}")
-    log (f"current source: {MYSOURCE}")
+    # log (f"this is the user input: {myQuery}")
+    # log (f"current source: {MYSOURCE}")
 
     if MYSOURCE == "thread":
         myQuery  = os.getenv('threadTopic')
@@ -444,14 +444,24 @@ def main():
     elif MYSOURCE == "contacts":
         #myQuery  = os.getenv('myArg')
         #myQuery = myQuery.replace(" ", "_")
-        log (f"this is the input for the SQL compiler: {myQuery}")
+        #log (f"this is the input for the SQL compiler: {myQuery}")
         
         mySQL = compileSQL (myQuery,myFolderKeys, myAccountKeys,myContacts)
         
     elif myQuery:
         mySQL = compileSQL (myQuery,myFolderKeys, myAccountKeys,myContacts)
     else:
-        mySQL = f"SELECT * FROM Mail ORDER BY Message_TimeSent DESC"
+        if EXCL_FOLDERS:
+            for myExclFolder in EXCL_FOLDERS:
+        
+                myFolderID = next((key for key, value in myFolderKeys.items() if value == myExclFolder.strip()), None)
+            
+        
+            if myFolderID:
+                ExclFolder = f"WHERE Record_FolderID <> {myFolderID}"
+            else:
+                ExclFolder = ""
+        mySQL = f"SELECT * FROM Mail {ExclFolder} ORDER BY Message_TimeSent DESC"
     
     handle(mySQL)
 

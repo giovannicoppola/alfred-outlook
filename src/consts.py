@@ -19,13 +19,14 @@ WEED_TX = os.getenv('WEED_TEXT').split(",")
 
 # SAVED QUERIES BLOCK
 SAVED_QUERIES=[]
-SAVED_QUERIES_RAW = os.getenv('SAVED_QUERIES').split(";")
-for mySavedQuery in SAVED_QUERIES_RAW:
-    CURR_SQ = {'Name': mySavedQuery.split("=")[0], 
-               'Query': mySavedQuery.split("=")[1]
-    }
-    SAVED_QUERIES.append(CURR_SQ)
-SAVED_QUERIES = [{k.strip(): v.strip() for k, v in d.items()} for d in SAVED_QUERIES]
+SAVED_QUERIES_RAW = os.getenv('SAVED_QUERIES')
+if SAVED_QUERIES_RAW:
+    for mySavedQuery in SAVED_QUERIES_RAW.split(";"):
+        CURR_SQ = {'Name': mySavedQuery.split("=")[0], 
+                'Query': mySavedQuery.split("=")[1]
+        }
+        SAVED_QUERIES.append(CURR_SQ)
+    SAVED_QUERIES = [{k.strip(): v.strip() for k, v in d.items()} for d in SAVED_QUERIES]
 
 
 EXCL_FOLDERS = os.getenv('EXCLUDED_FOLDERS').split(",")
@@ -36,8 +37,8 @@ MY_HOME = os.getenv('HOME')
 
 OUTLOOK_MSG_FOLDER = f'{MY_HOME}/Library/Group Containers/UBF8T346G9.Office/Outlook/Outlook 15 Profiles/Main Profile/Data/'
 
-#OUTLOOK_DB_FILE = f'{MY_HOME}/Library/Group Containers/UBF8T346G9.Office/Outlook/Outlook 15 Profiles/Main Profile/Data/Outlook.sqlite'
-OUTLOOK_DB_FILE = "/Users/giovanni/Desktop/Main Profile/Data/Outlook.sqlite"
+OUTLOOK_DB_FILE = f'{MY_HOME}/Library/Group Containers/UBF8T346G9.Office/Outlook/Outlook 15 Profiles/Main Profile/Data/Outlook.sqlite'
+#OUTLOOK_DB_FILE = "/Users/giovanni/Desktop/Main Profile/Data/Outlook.sqlite"
 
 WF_DATA_FOLDER = os.getenv('alfred_workflow_data')
 OUTLOOK_FOLDER_KEY_FILE  = f"{WF_DATA_FOLDER}/keyfolder.json"
