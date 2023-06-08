@@ -109,11 +109,14 @@ def getAccountData():
 
 
 def getContactList():
+    """
+    compiling the autocomplete contact list from the list of senders currently in the database
+    """
     myContacts = []
     db = sqlite3.connect(OUTLOOK_DB_FILE)
     
     cur = db.cursor()
-    rs = cur.execute(f"SELECT Message_RecipientList from Mail")
+    rs = cur.execute(f"SELECT Message_SenderList from Mail")
     if rs:
         for myRs in rs:
             #log (myRs)
@@ -121,6 +124,7 @@ def getContactList():
                 currentContacts = myRs[0].split(";")
                 for thisContact in currentContacts:
                     thisContact = thisContact.strip()
+                    thisContact = thisContact.replace("'","")
                     if thisContact in myContacts:
                         continue
                     else:
@@ -128,10 +132,40 @@ def getContactList():
             except:
                 continue
     myContacts.sort()
-    with open(OUTLOOK_CONTACTS_FILE, "w") as f:
+    with open(OUTLOOK_CONTACTS_LIST_FILE, "w") as f:
             json.dump(myContacts, f, indent=4)              
         
     #log (myContacts)
+
+def getContactBook():
+    """
+    getting the autocomplete contact list from the address book
+    """
+    myContacts = []
+    db = sqlite3.connect(OUTLOOK_DB_FILE)
+    
+    cur = db.cursor()
+    rs = cur.execute(f"SELECT Contact_DisplayName from Contacts")
+    if rs:
+        for myRs in rs:
+            #log (myRs)
+            try:
+                currentContacts = myRs[0].split(";")
+                for thisContact in currentContacts:
+                    thisContact = thisContact.strip()
+                    thisContact = thisContact.replace("'","")
+                    if thisContact in myContacts:
+                        continue
+                    else:
+                        myContacts.append(thisContact)
+            except:
+                continue
+    myContacts.sort()
+    with open(OUTLOOK_CONTACTS_BOOK_FILE, "w") as f:
+            json.dump(myContacts, f, indent=4)              
+        
+    #log (myContacts)
+
 
 def fetchRecordID (myID):
     db = sqlite3.connect(OUTLOOK_DB_FILE)

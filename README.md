@@ -116,6 +116,7 @@ src="https://img.shields.io/github/downloads/giovannicoppola/alfred-outlookSuite
 - Snooze icon: https://www.flaticon.com/free-icon/snooze_3602333
 - https://www.flaticon.com/free-icon/chapter_6348276
 - https://www.flaticon.com/free-icon/diskette_907027
+- https://www.flaticon.com/free-icon/save_4371273
 	
 <h1 id="changelog">Changelog 🧰</h1>
 

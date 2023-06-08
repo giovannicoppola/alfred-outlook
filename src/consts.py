@@ -16,7 +16,21 @@ BEETOKEN = os.getenv('BEETOKEN')
 BEEGOAL = os.getenv('BEEGOAL')
 SNOOZE_FOLDER = os.getenv('SNOOZE_FILE_LOCATION')
 WEED_TX = os.getenv('WEED_TEXT').split(",")
+
+# SAVED QUERIES BLOCK
+SAVED_QUERIES=[]
+SAVED_QUERIES_RAW = os.getenv('SAVED_QUERIES').split(";")
+for mySavedQuery in SAVED_QUERIES_RAW:
+    CURR_SQ = {'Name': mySavedQuery.split("=")[0], 
+               'Query': mySavedQuery.split("=")[1]
+    }
+    SAVED_QUERIES.append(CURR_SQ)
+SAVED_QUERIES = [{k.strip(): v.strip() for k, v in d.items()} for d in SAVED_QUERIES]
+
+
 EXCL_FOLDERS = os.getenv('EXCLUDED_FOLDERS').split(",")
+
+CONTACT_AUTOCOMPLETE = os.getenv('CONTACT_AUTOCOMPLETE')
 
 MY_HOME = os.getenv('HOME')
 
@@ -28,7 +42,11 @@ OUTLOOK_DB_FILE = "/Users/giovanni/Desktop/Main Profile/Data/Outlook.sqlite"
 WF_DATA_FOLDER = os.getenv('alfred_workflow_data')
 OUTLOOK_FOLDER_KEY_FILE  = f"{WF_DATA_FOLDER}/keyfolder.json"
 OUTLOOK_ACCOUNT_KEY_FILE  = f"{WF_DATA_FOLDER}/keyaccount.json"
-OUTLOOK_CONTACTS_FILE = f"{WF_DATA_FOLDER}/keycontacts.json"
+
+OUTLOOK_CONTACTS_BOOK_FILE = f"{WF_DATA_FOLDER}/keycontactsBook.json"
+OUTLOOK_CONTACTS_LIST_FILE = f"{WF_DATA_FOLDER}/keycontactsList.json"
+
+
 
 if SNOOZE_FOLDER:
     OUTLOOK_SNOOZER_FILE  = f"{SNOOZE_FOLDER}/snoozer.json"

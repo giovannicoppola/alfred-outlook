@@ -590,7 +590,7 @@
 				<key>argumenttrimmode</key>
 				<integer>0</integer>
 				<key>argumenttype</key>
-				<integer>0</integer>
+				<integer>1</integer>
 				<key>escaping</key>
 				<integer>102</integer>
 				<key>keyword</key>
@@ -2002,13 +2002,43 @@ A suite of tools to interact with Microsoft Outlook via Alfred
 				<integer>9</integer>
 			</dict>
 			<key>description</key>
-			<string>Enter queries to save, one per line</string>
+			<string>Enter queries to save, separated by `;`</string>
 			<key>label</key>
 			<string>Saved Queries</string>
 			<key>type</key>
 			<string>textarea</string>
 			<key>variable</key>
 			<string>SAVED_QUERIES</string>
+		</dict>
+		<dict>
+			<key>config</key>
+			<dict>
+				<key>default</key>
+				<string>None</string>
+				<key>pairs</key>
+				<array>
+					<array>
+						<string>None</string>
+						<string>None</string>
+					</array>
+					<array>
+						<string>AddressBook</string>
+						<string>AddressBook</string>
+					</array>
+					<array>
+						<string>Database</string>
+						<string>Database</string>
+					</array>
+				</array>
+			</dict>
+			<key>description</key>
+			<string>Use contact autocomplete?</string>
+			<key>label</key>
+			<string>Contact autocomplete</string>
+			<key>type</key>
+			<string>popupbutton</string>
+			<key>variable</key>
+			<string>CONTACT_AUTOCOMPLETE</string>
 		</dict>
 	</array>
 	<key>version</key>

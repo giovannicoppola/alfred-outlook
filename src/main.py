@@ -18,7 +18,7 @@ import subprocess
 
 #initializing JSON output
 result = {"items": [], "variables":{}}
-MYSOURCE = os.getenv('mySource')
+
 
 def fetchFolder ():
     """
@@ -44,6 +44,11 @@ def fetchAccounts ():
 
 def fetchContacts ():
     
+    if CONTACT_AUTOCOMPLETE == "Database":
+        OUTLOOK_CONTACTS_FILE = OUTLOOK_CONTACTS_LIST_FILE
+    elif CONTACT_AUTOCOMPLETE == "AddressBook":
+        OUTLOOK_CONTACTS_FILE = OUTLOOK_CONTACTS_BOOK_FILE
+
     with open(OUTLOOK_CONTACTS_FILE, "r") as f:
         d = json.load(f)
     return d
@@ -57,23 +62,26 @@ def cleanSubject(mySubject):
             mySubject = mySubject.replace (substring, "")
     return mySubject
 
-def showContacts(MY_INPUT, MY_CONTACTS,myQuery):
+def showContacts(MY_INPUT, MY_CONTACTS,myQuery,myDirection):
         MYOUTPUT = {"items": []}
         mySubset = [i for i in MY_CONTACTS if MY_INPUT.casefold() in i.casefold()]
-        
-        # adding a complete tag if the user selects it from the list
+        myQueryQ = " ".join([w for w in myQuery.split() if not w.startswith(f"{myDirection}:")])
+
+
+        # adding a complete contact if the user selects it from the list
         if mySubset:
             for thisContact in mySubset:
-                
+                thisContact_ = thisContact.replace(" ", "_")
                 MYOUTPUT["items"].append({
                 "title": f"{thisContact}",
                 "subtitle": MY_INPUT,
-                "arg": "",
+                "arg": f"{myQueryQ} {myDirection}:{thisContact_} ",
                 "variables" : {
-                "selectedContact": thisContact,
-                "myIter": True,
-                "myQuery": myQuery,
-                "mySource": 'contacts'
+                    
+                    "myIter": True,
+                    #"myQuery": myQuery,
+                    "mySource": 'contacts',
+                    
                     },
                 "icon": {
                         "path": f"icons/contact.png"
@@ -95,6 +103,48 @@ def showContacts(MY_INPUT, MY_CONTACTS,myQuery):
         print (json.dumps(MYOUTPUT))
         exit()
 
+
+def showSavedQueries(MY_INPUT, SAVED_QUERIES,myQuery):
+        MYOUTPUT = {"items": []}
+        mySubset = [i for i in SAVED_QUERIES if MY_INPUT.casefold() in i['Name'].casefold()]
+        myQueryQ = " ".join([w for w in myQuery.split() if not w.startswith("sq:")])
+
+
+        # adding a complete contact if the user selects it from the list
+        if mySubset:
+            for thisSQ in mySubset:
+                
+                MYOUTPUT["items"].append({
+                "title": f"{thisSQ['Name']}",
+                "subtitle": thisSQ['Query'],
+                "arg": f"{myQueryQ} {thisSQ['Query']} ",
+                "variables" : {
+                    
+                    "myIter": True,
+                    "mySource": 'saved_queries',
+                    
+                    },
+                "icon": {
+                        "path": f"icons/savedSearch.png"
+                    }
+                })
+        else:
+            MYOUTPUT["items"].append({
+            "title": "no saved searches matching",
+            "subtitle": "try another query?",
+            "variables" : {
+                    
+                    "myArg": MY_INPUT+" "
+                    },
+            "arg": "",
+            "icon": {
+                    "path": f"icons/Warning.png"
+                }
+            })
+        print (json.dumps(MYOUTPUT))
+        exit()
+
+
 def compileSQL(myQuery,myFolderKeys,myAccountKeys,myContacts):
     """
     a function to parse the user's input and generate an SQL query that can be used to query the database
@@ -104,28 +154,55 @@ def compileSQL(myQuery,myFolderKeys,myAccountKeys,myContacts):
     # if len(myElements) > 1:
     conditions = []
     DEFAULT_SORT = 'DESC'
+    MYITER = os.getenv('myIter')
+    MYSOURCE = os.getenv('mySource')
+    
     
     for myElement in myElements:
+        log (f"myIter = {MYITER}")
         if myElement.startswith("from:"): #user is searching by sender
-            #showContacts (myElement.split(":")[1],myContacts,myQuery)
             if myElement == 'from:me': #use the user-defined name string
-                myString = MYSELF
+                    myString = MYSELF
             
-            else: 
+            elif MYITER == None or (MYITER == '1' and MYSOURCE != "contacts"): #not coming from the contact autocomplete
+                if CONTACT_AUTOCOMPLETE != "None":
+                    showContacts (myElement.split(":")[1],myContacts,myQuery,"from")
+                else: #no autocomplete
+                    myString = myElement.split(":")[1].strip()
+                    myString = myString.replace("_"," ")    
+            else: #no showing contacts
                 myString = myElement.split(":")[1].strip()
                 myString = myString.replace("_"," ")
-                #myString = os.getenv('SelectedContact')
-            conditions.append (f"Message_SenderList LIKE '%{myString}%'")
-            
+                    
+            conditions.append (f"Message_SenderList LIKE '%{myString.strip()}%'")
+                
         elif myElement.startswith("to:"): #user is searching by sender
             
             if myElement == 'to:me': #use the user-defined name string
                 myString = MYSELF
             
-            else: 
+            elif MYITER == None: #not coming from the contact autocomplete
+                if CONTACT_AUTOCOMPLETE != "None":
+                    showContacts (myElement.split(":")[1],myContacts,myQuery,"to")
+                else: #no autocomplete
+                    myString = myElement.split(":")[1].strip()
+                    myString = myString.replace("_"," ")    
+            else: #no showing contacts
                 myString = myElement.split(":")[1].strip()
                 myString = myString.replace("_"," ")
-            conditions.append (f"Message_RecipientList LIKE '%{myString}%'")
+
+            conditions.append (f"Message_RecipientList LIKE '%{myString.strip()}%'")
+
+        elif myElement.startswith("sq:"): #user is entering a saved query
+            
+            if MYITER == None: #not coming from the sq autocomplete
+                showSavedQueries (myElement.split(":")[1],SAVED_QUERIES,myQuery)
+                
+            # else: #no showing contacts
+            #     myString = myElement.split(":")[1].strip()
+            #     myString = myString.replace("_"," ")
+
+            # conditions.append (f"Message_RecipientList LIKE '%{myString.strip()}%'")
 
         elif myElement.startswith("cc:"): #user is searching by sender
             
@@ -238,47 +315,6 @@ def compileSQL(myQuery,myFolderKeys,myAccountKeys,myContacts):
         
     return sql
     
-    
-def main():
-    checkingTime()
-    try: 
-        myFolderKeys
-    except:
-        myFolderKeys = fetchFolder ()
-
-    try: 
-        myAccountKeys
-    except:
-        myAccountKeys = fetchAccounts ()
-
-    try: 
-        myContacts
-    except:
-        myContacts = fetchContacts ()
-
-    # Check if the file has been updated today
-    if checkJSON(OUTLOOK_SNOOZER_FILE):
-        log("The JSON file has been updated today.")
-    else:
-        log("The JSON file has not been updated today. Updating....")
-        subprocess.run(["python3", "unSnoozer.py"])
-
-
-    myQuery = sys.argv[1]
-
-    if MYSOURCE == "thread":
-        mySQL = f"SELECT * FROM Mail WHERE Message_ThreadTopic = '{myQuery}' ORDER BY Message_TimeSent ASC"
-    # elif MYSOURCE == "contacts":
-    #     myQuery  = os.getenv('myQuery')
-    elif myQuery:
-        mySQL = compileSQL (myQuery,myFolderKeys, myAccountKeys,myContacts)
-    else:
-        mySQL = f"SELECT * FROM Mail ORDER BY Message_TimeSent DESC"
-    
-    handle(mySQL)
-
-
-
 
 def handle(mySQL):
     
@@ -333,7 +369,7 @@ def handle(mySQL):
             'valid': True,
             "quicklookurl": '',
             'variables': {
-                
+                    
             },
                 "mods": {
 
@@ -342,7 +378,8 @@ def handle(mySQL):
                     "subtitle": f"🧵 filter entire thread",
                     "arg": r['Message_ThreadTopic'],
                     'variables': {
-                        "mySource": 'thread'   
+                        "mySource": 'thread',
+                        "threadTopic": r['Message_ThreadTopic']
                     }
                 },
                 "shift": {
@@ -366,8 +403,59 @@ def handle(mySQL):
                 }
             
                 })
-        
+    result['variables'] = {"mySource": "mailList"}                   
     print (json.dumps(result))
+
+
+def main():
+    MYSOURCE = os.getenv('mySource')
+    log (SAVED_QUERIES)
+    checkingTime()
+    try: 
+        myFolderKeys
+    except:
+        myFolderKeys = fetchFolder ()
+
+    try: 
+        myAccountKeys
+    except:
+        myAccountKeys = fetchAccounts ()
+
+    try: 
+        myContacts
+    except:
+        myContacts = fetchContacts ()
+
+    # Check if the file has been updated today
+    if checkJSON(OUTLOOK_SNOOZER_FILE):
+        log("The JSON file has been updated today.")
+    else:
+        log("The JSON file has not been updated today. Updating....")
+        subprocess.run(["python3", "unSnoozer.py"])
+
+
+    myQuery = sys.argv[1]
+    log (f"this is the user input: {myQuery}")
+    log (f"current source: {MYSOURCE}")
+
+    if MYSOURCE == "thread":
+        myQuery  = os.getenv('threadTopic')
+        mySQL = f"SELECT * FROM Mail WHERE Message_ThreadTopic = '{myQuery}' ORDER BY Message_TimeSent ASC"
+    elif MYSOURCE == "contacts":
+        #myQuery  = os.getenv('myArg')
+        #myQuery = myQuery.replace(" ", "_")
+        log (f"this is the input for the SQL compiler: {myQuery}")
+        
+        mySQL = compileSQL (myQuery,myFolderKeys, myAccountKeys,myContacts)
+        
+    elif myQuery:
+        mySQL = compileSQL (myQuery,myFolderKeys, myAccountKeys,myContacts)
+    else:
+        mySQL = f"SELECT * FROM Mail ORDER BY Message_TimeSent DESC"
+    
+    handle(mySQL)
+
+
 
 
 

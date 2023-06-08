@@ -3,13 +3,16 @@
 # Script to build/update the folder database in outlook
 # Created on Saturday, June 3, 2023
 
-from util import log, getFolderData, getAccountData, getContactList
+from util import log, getFolderData, getAccountData, getContactList, getContactBook
 import json
+import os
 
+CONTACT_AUTOCOMPLETE = os.getenv('CONTACT_AUTOCOMPLETE')
 log ("rebuilding database ⏳...")
 getFolderData()
 getAccountData()
 getContactList()
+getContactBook()
 
 log ("done 👍")
 
