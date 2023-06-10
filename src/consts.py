@@ -21,6 +21,8 @@ WEED_TX = os.getenv('WEED_TEXT').split(",")
 SAVED_QUERIES=[]
 SAVED_QUERIES_RAW = os.getenv('SAVED_QUERIES')
 if SAVED_QUERIES_RAW:
+    if SAVED_QUERIES_RAW.endswith(";"):
+        SAVED_QUERIES_RAW = SAVED_QUERIES_RAW[:-1]
     for mySavedQuery in SAVED_QUERIES_RAW.split(";"):
         CURR_SQ = {'Name': mySavedQuery.split("=")[0], 
                 'Query': mySavedQuery.split("=")[1]
@@ -37,8 +39,8 @@ MY_HOME = os.getenv('HOME')
 
 OUTLOOK_MSG_FOLDER = f'{MY_HOME}/Library/Group Containers/UBF8T346G9.Office/Outlook/Outlook 15 Profiles/Main Profile/Data/'
 
-OUTLOOK_DB_FILE = f'{MY_HOME}/Library/Group Containers/UBF8T346G9.Office/Outlook/Outlook 15 Profiles/Main Profile/Data/Outlook.sqlite'
-#OUTLOOK_DB_FILE = "/Users/giovanni/Desktop/Main Profile/Data/Outlook.sqlite"
+#OUTLOOK_DB_FILE = f'{MY_HOME}/Library/Group Containers/UBF8T346G9.Office/Outlook/Outlook 15 Profiles/Main Profile/Data/Outlook.sqlite'
+OUTLOOK_DB_FILE = "/Users/giovanni/Desktop/Main Profile/Data/Outlook.sqlite"
 
 WF_DATA_FOLDER = os.getenv('alfred_workflow_data')
 OUTLOOK_FOLDER_KEY_FILE  = f"{WF_DATA_FOLDER}/keyfolder.json"

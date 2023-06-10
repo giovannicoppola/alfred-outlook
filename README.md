@@ -55,6 +55,8 @@ src="https://img.shields.io/github/downloads/giovannicoppola/alfred-outlookSuite
 	- *Folders list refresh rate*	- The folder list is generated periodically (default: 30 days) to improve performance, as folders change less often. Enter your preferred number of days here.
 	- *Snooze file location* - Leave empty if you use this Workflow on one computer (it will be saved in the Workflow's data folder). Enter a shared folder location here in case you want to share the file snoozing information across computers using the same Outlook account.
 	- *Beeminder info* if you use [Beeminder](https://www.beeminder.com/) to track your inbox, enter your account information here and Alfred will post the number of messages in inbox every time an unsnooze script is run
+	- *Contact autocomplete* Choose between `None` (no autocomplete, default), `AddressBook`: autocomplete list generated from the Address Book, or `Database`: autocomplete list generated from the senders in the database. 
+	- *Saved Queries* enter here queries that can be inboked using the `sq:` trigger. Enter multiple queries in this format: `RecentUnread = to:me is:unread since:20`, separated by semicolon (`;`)	
 
 
 <h1 id="usage">Basic Usage 📖</h1>
@@ -72,6 +74,7 @@ src="https://img.shields.io/github/downloads/giovannicoppola/alfred-outlookSuite
 	- `account:` to filter by Exchange account
 	- `--a` to sort by increasing date (oldest first)
 	- `since:n` will return email received in the last `n` days. `w` and `m` are supported for months and weeks, respectively (e.g. `since:2w`).
+	- `sq:` will open a list of saved queries
 - Once an email of interest has been identified, the following actions are possible:
 	- ↩️Enter will open the email in Outlook
 	- ^-↩️ (control-enter) will show all the messages in the thread
@@ -120,6 +123,7 @@ src="https://img.shields.io/github/downloads/giovannicoppola/alfred-outlookSuite
 	
 <h1 id="changelog">Changelog 🧰</h1>
 
+- 2023-06-10 version 0.9.2: contact autocomplete, saved queries
 - 2023-06-07 version 0.9.1: support for multiple Exchange accounts
 - 2023-06-03 version 0.9: complete rewrite, renamed `OutlookSuite`
 - 2022-12-05 version 0.3 (Alfred 5)

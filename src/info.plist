@@ -1449,6 +1449,7 @@ A suite of tools to interact with Microsoft Outlook via Alfred
 	- `-text` to exclude text 
 	- `--a` to sort by increasing date (oldest first)
 	- `since:n` will return email received in the last `n` days. `w` and `m` are supported for months and weeks, respectively (e.g. `since:2w`).
+	- `sq:` will open a list of saved queries
 - Once an email of interest has been identified, the following actions are possible:
 	- ↩️Enter will open the email in Outlook
 	- ^-↩️ (control-enter) will show all the messages in the thread
@@ -2014,7 +2015,7 @@ A suite of tools to interact with Microsoft Outlook via Alfred
 			<key>config</key>
 			<dict>
 				<key>default</key>
-				<string>AddressBook</string>
+				<string>None</string>
 				<key>pairs</key>
 				<array>
 					<array>
@@ -2044,7 +2045,7 @@ A suite of tools to interact with Microsoft Outlook via Alfred
 	<key>variablesdontexport</key>
 	<array/>
 	<key>version</key>
-	<string>0.9.2</string>
+	<string>0.9.3</string>
 	<key>webaddress</key>
 	<string>https://github.com/giovannicoppola/alfred-outlook</string>
 </dict>
