@@ -36,7 +36,7 @@ src="https://img.shields.io/github/downloads/giovannicoppola/alfred-outlookSuite
 
 ### Needed
 - Alfred 5 with Powerpack license
-- *Note*: Many of the functions of this pacage Will not work with the 'New Outlook' interface, as AppleScript is not supported. 
+- *Note*: Many of the functions of this package will not work with the 'New Outlook' interface, as AppleScript is not supported. 
 - *Note*: Your institution might have an automatic archival policy. In that case older mail messages that have been archived will not be returned in alfred-outlookSuite queries
 - Python3 (howto [here](https://www.freecodecamp.org/news/python-version-on-mac-update/))
 - Download `alfred-outlookSuite` [latest release](https://github.com/giovannicoppola/alfred-outlookSuite/releases/latest)
@@ -123,7 +123,7 @@ src="https://img.shields.io/github/downloads/giovannicoppola/alfred-outlookSuite
 	
 <h1 id="changelog">Changelog 🧰</h1>
 
-- 2023-06-10 version 0.9.2: contact autocomplete, saved queries
+- 2023-06-10 version 0.9.3: contact autocomplete, saved queries
 - 2023-06-07 version 0.9.1: support for multiple Exchange accounts
 - 2023-06-03 version 0.9: complete rewrite, renamed `OutlookSuite`
 - 2022-12-05 version 0.3 (Alfred 5)
