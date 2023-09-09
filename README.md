@@ -123,6 +123,7 @@ src="https://img.shields.io/github/downloads/giovannicoppola/alfred-outlookSuite
 	
 <h1 id="changelog">Changelog 🧰</h1>
 
+- 2023-09-08 version 0.9.4: bug fix
 - 2023-06-10 version 0.9.3: contact autocomplete, saved queries
 - 2023-06-07 version 0.9.1: support for multiple Exchange accounts
 - 2023-06-03 version 0.9: complete rewrite, renamed `OutlookSuite`
