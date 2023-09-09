@@ -2045,7 +2045,7 @@ A suite of tools to interact with Microsoft Outlook via Alfred
 	<key>variablesdontexport</key>
 	<array/>
 	<key>version</key>
-	<string>0.9.3</string>
+	<string>0.9.4</string>
 	<key>webaddress</key>
 	<string>https://github.com/giovannicoppola/alfred-outlook</string>
 </dict>
