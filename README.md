@@ -3,7 +3,7 @@
 
 
 
-- *Note*: Many of the functions of this package will not work with the new, electron-based, 'New Outlook' interface, as AppleScript is not supported. Uncheck `New Outlook` in the `File` menu in Outlook to switch to the previous version.
+- *Note*: Many of the functions of this package will not work with the new, electron-based, 'New Outlook' interface, as AppleScript is not supported. Uncheck `New Outlook` in the `File` menu in Outlook to switch to the legacy version.
 
 <a href="https://github.com/giovannicoppola/alfred-outlookSuite/releases/latest/">
 <img alt="Downloads"
