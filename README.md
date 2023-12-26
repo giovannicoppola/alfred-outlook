@@ -82,6 +82,7 @@ src="https://img.shields.io/github/downloads/giovannicoppola/alfred-outlookSuite
  
 ## Draft a new email ⭐
 - use a keyword (default: `em`) or a hotkey to launch, followed by text. Alfred will create a draft email with subject =  entered text, and save it  in the `Drafts` folder. 
+![](images/draft.png)
 
 ## Email Saving 💾
 - use a keyword (default: `ols`) or a hotkey to launch, while Outloook is the frontmost application and an email is selected. 
@@ -97,6 +98,8 @@ src="https://img.shields.io/github/downloads/giovannicoppola/alfred-outlookSuite
 - Selecting the result will 1) Snooze the email until the desired date and 2) move that email to the `Snoozed` folder. 
 - the `checkSnoozed` keyword will show in large font (and copy to clipboard) an overview of all the snoozed email (one line per day) 
 - Unsnoozing will happen once a day, as soon as `alfred-outlookSuite` is launched. You can force the unsnooze script using a keyword (default: `olu`) or a hotkey. 
+
+![](images/snooze.png)
 
 
 ## Folder database refresh 🔄
